@@ -1,0 +1,48 @@
+
+\subsection{Chapter 2}
+
+\begin{p}
+%{\bf 2} {\em 
+Show that the two definitions of continuity are equivalent: 
+ \begin{itemize}
+\item Topological definition: $f$ is continuous if for any open $U\subset Y$, $f^{-1}(U)\subset X$ is also open
+ \item $\epsilon-\delta$ definition: $f$ is continuous when for all $x$ and $\epsilon>0$, there exists a $\delta>0$ such that $||x-x'||<\delta$ implies $||f(x)-f(x')||<\epsilon$. 
+\end{itemize}
+\end{p}
+{
+ \begin{itemize}
+\item[$\Rightarrow$] Pick $f(x)\in Y$ and $\epsilon>0$. Set $U=\{y:||y-f(x)||<\epsilon\}$, which is an open set . Thus $f^{-1}(U)$ is also an open set. This means that for all $x\in f^{-1}(U)$ all points sufficiently close to $x$ are also in $f^{-1}(U)$ or, put differently, for all $x$ there exists $\delta>0$ such that $N_\delta(x)=\{x':||x-x'||<\delta\}\subset f^{-1}(U)$. Thus, $f(x')\in U$ for all $x'\in N_\delta(x)$, which means there exists a $\delta>0$ such that $||x-x'||<\delta$ implies $||f(x)-f(x')||<\epsilon$
+
+ \item[$\Leftarrow$] Pick any open $U$. Now we must show that $f^{-1}(U)$ is open. For any $f(x)\in U$ there exists $\delta>0$ such that $||x-x'||<\delta$ means $||f(x)-f(x')||<\epsilon$, so we can pick $\epsilon$ small enough to ensure that $\{f(x'):||f(x)-f(x')||<\epsilon\}\subset U$. Hence, for any point $x\in f^{-1}(U)$, points sufficiently close are also in $f^{-1}(U)$: $f^{-1}(U)$ is open. 
+\end{itemize}
+}
+
+\begin{p}
+Show that $S^n\subset \R^{n+1}$ with its induced topology is a manifold.
+\end{p}
+We need to check that the transition functions are smooth. This can be ensured by 
+mapping each of the subsets of the sphere back into $\R^{n+1}$ and
+applying the transition function there (it's the identity function there).
+
+
+\begin{p}
+Show that if $M$ is a manifold and $U$ is an open subset of $M$, then $U$ with its 
+induced topology is a manifold.
+\end{p}
+{
+The only thing one really needs to check is the smoothness of the transition functions
+$\varphi_\alpha \circ \varphi_\beta^{-1}$. But this property is directly inherited from $M$,
+since subsets of the form $U \cap S$ where $S$ is open in $M$ are themselves open
+subsets of $M$.
+}
+
+\begin{p}
+Given topological spaces $X$ and $Y$, we give $X\times Y$ the product topology in which a set is open if and only if it is a union of sets of the form $U\times V$,where $U$ is open in $X$ and $V$ is open in $Y$. Show that if $M$ is an $m$-dimensional manifold and $N$ is an $n$-dimensional manifold, $M \times  N$ is an $(m + n)$-dimensional manifold.
+\end{p}
+{...}
+\begin{p}
+Given topological spaces $X$ and $Y$, we give $X\times Y$ the disjoint union topology in which a set is open if and only if it is the union of an open subset of $X$ and an open subset of $Y$. Show that if $M$ and $N$ are $n$-dimensional manifolds the disjoint union $M \cup N$ is an $n$-dimensional manifold.
+\end{p}
+{...}
+
+

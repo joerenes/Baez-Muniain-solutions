@@ -1,0 +1,215 @@
+%!TEX root = ../gfkg.tex
+\subsection{Chapter 4}
+\begin{p}
+{Show that $\omega+\mu$ and $f\omega$ are really 1-forms, i.e.\ show linearity over $C^\infty(M)$.}
+\end{p}
+
+That $\omega$ and $\mu$ are 1-forms means they are (separately) linear over $C^\infty(M)$. So $[\omega+\mu](v+w)=
+\omega(v+w)+\mu(v+w)=\omega(v)+\omega(w)+\mu(v)+\mu(w)=[\omega+\mu](v)+[\omega+\mu](w)$. $f\omega$ is just
+multiplication by $f$ of the result of applying $\omega$, so $[f\omega](v+w)=f\omega(v+w)=f\omega(v)+f\omega(w)$.
+
+\begin{p}{Show that $\Omega^1(M)$ is a module over $C^\infty(M)$.}
+\end{p}
+
+There are four conditions to check. Let $f,g\in C^\infty(M)$ and $\omega,\mu\in C^\infty(M)$. The first condition
+is $f(\omega+\mu)=f\omega+f\mu$, which is true by applying each side of the equation to a test vector $v$ and
+using the previous exercise to show the two resulting expressions are equal. Same for the conditions $(f+g)\omega=f\omega+g\omega$,
+$(fg)\omega=f(g\omega)$, and $1\omega=omega$. Basically the point is that by applying the 1-forms to test vectors, everything
+turns into functions and the equality of the different expressions follows immediately.\\
+
+\begin{p}
+{Show that $d(f+g)=df+dg, d(\alpha f)=\alpha\, df, (f+g)dh=f\,dh+g\,dh$, and $d(fg)=f(dg)+g(df)$ for any
+$f,g,h\in C^\infty(M)$ and any $\alpha\in \R$.}
+\end{p}
+
+The differential map $d$ is defined by $df(v)=vf$. Applying this definition to the first equation, we obtain $d(f+g)v=v(f+g)=vf+vg=df(v)+dg(v)=[df+dg](v)$ as intended. Similarly, $d(\alpha f)(v)=v(\alpha f)=\alpha vf=\alpha df(v)$
+and $(f+g)dh(v)=(f+g)vh=f\,vh+g\,vh=[f\,dh+g\,dh](v)$. For the last condition, compute $d(fg)(v)=v(fg).$ By the definition
+of $v$ as a vector field, $v(fg)=gv(f)+fv(g)$, so we obtain $d(fg)(v)=[f(dg)+g(df)](v)$.\\
+
+\begin{p}{Suppose $f(x^1,\dots,x^n)$ is a function on $\R^n$. Show that $df=\partial_\mu f\,dx^\mu$.}
+\end{p}
+
+Consider an arbitrary vector field $v=v^\nu \partial_\nu$. Then $df(v)=vf=v^\nu \partial_\nu f$. On the other hand, $(\partial_\mu f\,dx^\mu)v=\partial_\mu f\, vx^\mu=\partial_\mu f\, v^\nu\partial_\nu x^\mu=\partial_\mu f\, v^\nu \delta_\nu^\mu=v^\nu \partial_\nu f$. 
+So $df=\partial_\mu f\,dx^\mu$ as intended.
+
+{\begin{p}{Show that the 1-forms $\{dx^\mu\}$ are linearly independent.}
+\end{p}
+
+Suppose $\omega=\omega_\mu\,dx^\mu=0$. Then $\omega(\partial_\nu)=\omega_\mu\,dx^\mu(\partial_\nu)=\omega_\mu \partial_\nu x^\mu
+=\omega_\nu=0$.
+
+\begin{p}{Show that $\omega(v)(p)$ really depends only on $v_p$, not on 
+the values of $v$ at other points. Also, show that a 1-form is determined by its values at points.
+In other words, if $\omega, \nu$ are two 1-forms on $M$ with $\omega_p=\nu_p$ for 
+every point $p\in M$, then $\omega=\nu$. }
+\end{p}
+
+Suppose $w$ is a vector field for which $w_p=0$ but generally $w_q\neq 0$. By linearity, $\omega(v+w)=\omega(v)+\omega(w)$. 
+Specializing to the point $p$, we have $\omega(v+w)(p)=\omega(v)(p)+\omega(w)(p)=\omega_p(v_p)+\omega_p(w_p)$. But
+since $w_p=0$, the latter term is zero, and $\omega(v+w)(p)=\omega(v)(p)$. This means we can change the field $v$ at points
+distinct from $p$ and still obtain the same action by $omega$ at the desired point. Note that this works due to the linearity of the
+map $\omega$.\\
+
+Since we can ``decompose'' the field $v$ into tangent vectors $v_p$ at each point $p\in M$, (excercise 10), we have 
+$\omega_p(v_p)=\nu_p(v_p) = \omega(v)(p)=\nu(v)(p)$. This has to hold for any $v$ and all $p$, so $\omega=\nu$.\\
+
+\begin{p}{Show that the dual of the identity map on a vector space $V$ is the identity map on $V^*$. Suppose
+that we have linear maps $f:V\rightarrow W$ and $g:W\rightarrow X$. Show that $(gf)^*=f^*g^*$. }
+\end{p}
+
+The dual of a function $f$ is defined by $(f^*\omega)(v)=\omega(f(v))$. So if $f$ is the identity, then $(f^*\omega)(v)=\omega(v)$,
+meaning that $f^*$ must be the identity as well. 
+Now we find $[(gf)^*\omega](v)=\omega(g(f(v)))=[g^*\omega](f(v))=[f^*g^*\omega](v)$,
+so  $(gf)^*=f^*g^*$.
+
+\begin{p}{Show that the pullback defined by the equation $(\phi^*\omega)_p=\phi^*(\omega_q)$, where $\phi(p)=q$,
+really exists and is unique.}
+\end{p}
+
+Start with  $(\phi^*\omega)_p(v_p)=\phi^*\omega(v)(p)=\omega(\phi_*v)(\phi(p))=\omega(\phi_*v)(q)$. The other 
+side of the equation gives $\phi^*(\omega_q)v_q=\omega_q(\phi_* v_q)$, the same. Uniqueness follows from linearity: if there were
+two possible outputs, we could consider their difference. By linearity this would be the result of applying the map to the difference of the
+fixed input, which is zero. But the output of zero is zero, so the two possible outputs are equal.\\
+
+\begin{p}{Let $\phi:\R\rightarrow \R$ be given by $\phi(t)=\sin t$. Let $dx$ be the usual
+1-form on $\R$. Show that $\phi^*dx=\cos t\,dt$.}
+\end{p}
+
+$\phi^*(df)=d(\phi^*f)$ since the exterior derivative is natural. Thus $\phi^*(df)=d(\sin t)=\cos t\,dt$.
+
+\begin{p}{Let $\phi:\R^2\rightarrow \R^2$ denote rotation counterclockwise by the 
+angle $\theta$. Let $dx, dy$ be the usual basis of 1-forms on $\R^2$. Show that $\phi^*dx=\cos\theta\,dx-\sin\theta\,dy$
+and $\phi^*dy=\sin\theta\,dx+\cos\theta\,dy$. }
+\end{p}
+
+$\phi^*dx=d(\phi^*x)=d(x\cos\theta-y\sin\theta)=\cos\theta\,dx-\sin\theta\,dy$. Similarly for $\phi^*dy$. 
+
+\begin{p}{Show that the coordinate 1-forms $dx^\mu$ really are the differentials of the local coordinates $x^\mu$ on $U$.}
+\end{p}
+
+Technically, $x^\mu$ is the local coordinate on $\R^n$ which picks out the $\mu$th component. When speaking
+of $x^\mu$ on $U$, we really mean $\phi^*x^\mu$, where $\phi$ is the map from $U$ to $\R^n$. Thus
+$dx^\mu$ is really $d(\phi^*x^\mu)=\phi^*dx^\mu$, so the sloppiness of the notation doesn't injure the relationship
+between functions and 1-forms.
+
+\begin{p}{Show that $dx'^\nu=\frac{\partial x'^\nu}{\partial x^\mu}dx^\mu$. Show that for any 1-form $\omega$ on $\R^n$,
+writing $\om=\om_\mu dx^\mu=\om'_\nu dx'^\nu$, the components $\omega'_\nu$ are related to the components $\omega_\mu$ by
+$\omega'_\nu=\frac{\partial x^\mu}{\partial x'^\nu}\om_\mu$.}
+\end{p}
+
+For the first equation, apply both sides to the partial $\partial_\alpha$: $dx'^\nu(\partial_\alpha)=
+\partial_\alpha(x'^\nu)$ and $\frac{\partial x'^\nu}{\partial x^\mu}dx^\mu(\partial_\alpha)=
+\frac{\partial x'^\nu}{\partial x^\mu}\partial_\alpha(x^\mu)=
+\frac{\partial x'^\nu}{\partial x^\mu}\delta^\mu_\alpha=\frac{\partial x'^\nu}{\partial x^\alpha}=
+\partial_\alpha(x'^\nu)$. For the second, use the same trick. Apply $\om$ to 
+$\frac{\partial}{\partial x'^\alpha}$. The left expression gives $\om_\mu dx^\mu(\frac{\partial}{\partial x'^\alpha})=
+\om_\mu\frac{\partial x^\mu}{\partial x'^\alpha}$, while the right expression gives $\om'_\alpha$.\\
+
+\begin{p}{Show that $\phi^*(dx'^\nu)=\frac{\partial x'^\nu}{\partial x^\mu}dx^\mu$.}
+\end{p}
+
+$\phi^*(dx'^\nu)\partial_\mu=d(\phi^*x'^\nu)\partial_\mu=\partial_\mu(\phi^* x'^\nu)=\frac{\partial x'^\nu}{\partial x^\mu}$.
+
+\begin{p}{Let $e_\mu=T^\nu_\mu\partial_\nu$, where $\partial_\nu$ are the coordinate vector fields associated to local coordinates on
+an open set $U$ and $T^\nu_\mu$ are functions on $U$. Show that the vector fields $e_\mu$ are a basis of vector fields on $U$ iff for 
+each $p\in U$ the matrix $T^\nu_\mu(p)$ is invertible.}
+\end{p}
+
+\begin{itemize}
+\item[$\Rightarrow$] The matrix $T^\nu_\mu(p)$ is invertible, so det$T\neq 0$, meaning the $e_u$ are linearly independent at $p$ and thus 
+form a basis at $p$. Since this works for all $p$, the vector fields $e_\mu$ are a basis. 
+\item[$\Leftarrow$] Try to expand an arbitrary $\om$ in terms of the $e_\mu$: $\om=\om^\mu e_\mu$. We can also express
+$\om$ in terms of the $\partial_\nu$ as $\om=\om'^\nu\partial_\nu$, with $\om'^\nu= T^\nu_\mu \om^\mu$. If $T$ were not invertible, 
+we would not be able to construct the $\om^\mu$ from the $\om'^\nu$ (which are the ones guaranteed to exist), so $e_\mu$ wouldn't be 
+a basis. Since it is a basis, $T$ must be invertible. 
+\end{itemize}
+
+\begin{p}{Use the previous exercise to show that the dual basis exists and is unique}
+\end{p}
+
+Let $f^\mu$ be the putative dual basis to the $e_\nu$. Then $f^\mu(e_\nu)=\delta^\mu_\nu=T^\lambda_\nu f^\mu\partial_\lambda$.
+Now suppose $f^\mu=S^\mu_\lambda dx^\lambda$. Inserting into the previous equation we obtain $T^\lambda_\nu S^\mu_\lambda=\delta^\mu_\nu$, so $S$ is the inverse of $T$. Since $T$ is invertible, the $f^\mu$ are well-defined and unique.
+
+\begin{p}{Let $e_\mu$ be a basis of vector fields on $U$ and let $f^\mu$ be the dual basis of 1-forms. Let $e'_\mu=T^\nu_\mu e_\nu$
+be another basis of vector fields, and let $f'^\mu$ be the corresponding dual basis of 1-forms. Show that $f'^\mu=(T^{-1})^\mu_\nu f^\nu$. Show
+that if $v=v^\mu e_\mu=v'^\mu e'_\mu$, then $v'^\mu=(T^{-1})^\mu_\nu v^\nu$ and that if
+$\om=\om_\mu f^\mu=\om'_\mu f'^\mu$ then $\om'_\mu=T^\nu_\mu \om_\nu$.}
+\end{p}
+
+This is where the ``historical'' definitions of co- and contra-variant come from, specifying whether something transforms like the components
+of a vector or like the basis vectors themselves. (Vectors, being susceptible to pushforward, are covariant. 1-forms are contravariant, but the components of a vector are also contravariant, while the components of 1-forms are covariant.) For $f'^\mu$, apply it to $e'_\nu$:
+$f'^\mu(e'_\nu)=\delta^\mu_\nu$. Using the definition of $e'_\nu$, $\delta^\mu_\nu=T_\nu^\lambda f'^\mu(e_\lambda)$. 
+This works if $f'^\mu=(T^{-1})^\mu_\nu f^\nu$. All this can be done more easily in matrix notation. For the next case, let $\mathbf{v}$ be the 
+ordered set of $v^\mu$ and likewise $\mathbf{e}$ the set of $e_\mu$. Then $v=\mathbf{v}\cdot\mathbf{e}$. Meanwhile, $\mathbf{e}'=T\mathbf{e}$, so clearly we're going to need $\mathbf{v}'=(T^{-1})^T\mathbf{v}$ so that 
+$\mathbf{v}'\cdot\mathbf{e}'=\mathbf{v}T^{-1}T\mathbf{e}=v$. Thus, we predict that $v'^\mu=(T^{-1})^\mu_\nu v^\nu$, using
+the inverse and transposed $T$ as given in the definition of $e'_\mu$. Similarly $\om=\mathbf{\om}\cdot\mathbf{f}$, so 
+$\om'_\mu=T^\nu_\mu \om_\nu$.
+
+\begin{p}{Show that $u\wedge v\wedge w={\rm det}\left(\begin{array}{ccc} u_x & u_y & u_z \\
+v_x & v_y & v_z\\ w_x & w_y & w_z\end{array}\right)\,dx\wedge dy\wedge dz$. Compare this to $\vec{u}\cdot(\vec{v}\times\vec{w})$.}
+\end{p}
+
+...algebra
+
+\begin{p}{Show that if $a,b,c,d$ are four 1-forms in a 3-dimensional space, then $a\wedge b\wedge c\wedge d=0$.}
+\end{p}
+
+Since there are only three linearly independent 1-forms in this space, the 4-fold wedge product will always contain two of the basis
+elements twice, which by antisymmetry, means the entire expression must be zero.
+
+\begin{p}{Describe $\bigwedge V$ if $V$ is 1-,2-,3-, or 4-dimensional.}
+\end{p}
+
+1-dimensional: scalars and vectors. 2-dimensional: scalars, vectors, and areas. 3-dimensional: scalars, vectors, areas, and volumes. 4-dimensional:
+all the previous, plus 4-volumes.
+
+\begin{p}{Let $V$ be an n-dimensional vector space. Show that $\bigwedge^{\!p} V$ is empty for $p>n$ and that for $0\leq p\leq n$ the dimension of $\bigwedge^{\!p} V$ is $n!/p!(n-p)!$.}
+\end{p}
+
+As in exercise 42, elements of $\bigwedge^{\!p} V$ are wedge products of $p$ different terms, but since there are only $n$ independent possibilities,
+$\bigwedge^{\!p} V$ is empty for $p>n$. Wedging $p$ different terms for $p\leq n$ can be done in $\binom{n}{p}$ ways since by antisymmetry 
+the order of the terms can only affect the sign of the result.
+
+\begin{p}
+{Show that $\bigwedge V=\bigoplus_p \bigwedge^{\!p} V$.}
+\end{p}
+
+Since we've defined $\bigwedge V$ formally, as the linear space of wedge products of elements of $V$, we then immediately have
+that the different sectors corresponding to different number of wedgings $p$ are disjoint. Thus we can treat these 
+completely independently from one another and form $n$-tuples containing entries from each sector. This will be an element of
+$\bigwedge V$ since adding elements of distinct grade is also purely formal and can always be resolved into the various
+graded components. Thus, $\bigwedge V=\bigoplus_p \bigwedge^{\!p} V$.
+
+\begin{p}{Given a vector space $V$, show that $\bigwedge V$ is a graded commutative or supercommutative algebra;
+that is, if $\om\in \bigwedge^{\!p}V$ and $\mu\in\bigwedge^{\!q}V$, then $\om\wedge\mu=(-1)^{pq}\mu\wedge\om$.}
+\end{p}
+
+This is essentially just a counting argument. $\om$ is the wedge of $p$ things, $\mu$ $q$. So to invert the order of wedging
+them together means transporting $p$ elements of $V$ past $q$ elements of $V$, each time picking up a minus one.
+
+\begin{p}{Show that differential forms are contravariant. That is, show that if $\phi:M\rightarrow N$ is a map from the manifold
+$M$ to the manifold $N$, there is a unique pullback map $\phi^*:\Omega(N)\rightarrow\Omega(M)$ agreeing with the usual pullback 
+on 0-forms (functions) and 1-forms, satisfying $\phi^*(\alpha\om)=\alpha\phi^*\om$, $\phi^*(\om+\mu)=\phi^*\om+\phi^*\mu$ and
+$\phi^*(\om\wedge \mu)=\phi^*\om\wedge\phi^*\mu$, for all $\om,\mu\in\Omega(N)$ and $\alpha\in\R$.}
+\end{p}
+
+I take the three conditions to almost be the definition of the map. For a general $\om$, resolve it into a linear combination of 
+graded components using an arbitrary basis of 1-forms to generate the $p$-forms. The by condition two the pullback applies to each
+term separately. By condition one the coefficients of each term don't interfere with the pullback. Finally, by condition three we apply the pullback
+to each of the 1-forms making up the basis $p$-forms, so the map is well-defined. Its unique because the pullback applied to 1-forms and 
+functions is unique.
+
+\begin{p}{Compare the transformation properties of 1-forms and 2-forms on $\R^3$ under parity. That is, let $P:\R^3\rightarrow\R^3$ be the map $P(x,y,z)=(-x,-y,-z)$, known as the `parity transformation'. 
+Note that $P$ maps right-handed bases to left-handed bases and vice versa. Compute $\phi^*\om$ when $\om$ is the 1-form
+$\om_\mu dx^\mu$ and when it is the 2-form $\frac{1}{2}\omega_{\mu,\nu} dx^\mu\wedge dx^\nu$.}
+\end{p}
+
+If prime variables refer to the output space, for instance $x'=-x$, the 
+essential point is that $\phi^*(dx'^\mu)=d(\phi^* x'^\mu)=d(-x^\mu)=-dx^\mu$. Thus 
+$\phi^*\om^{(1)}=-\om$ and $\phi^*\om^{(2)}=\om^{(2)}$.
+
+\begin{p}{Show that on $\rn$ the exterior derivative of any 1-form is given by $d(\om_\mu dx^\mu)=\partial_\nu\om_\mu dx^\nu\wedge dx^\mu$.}
+\end{p}
+
+$d(\om_\mu dx^\mu)=d\om_\mu\wedge dx^\mu=\partial_\nu\om_\mu dx^\nu\wedge dx^\mu$.
+

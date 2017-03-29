@@ -1,0 +1,342 @@
+
+\subsection{Chapter 5}
+
+\begin{p}{Show that any 2-form $F$ on $\R\times S$ can be uniquely expressed as $B+E\wedge dt$ in 
+such a way that for any local coordinates $x^i$ on $S$ we have 
+$E=E_i dx^i$ and $B=\frac{1}{2}B_{ij} dx^i\wedge dx^j$.}
+\end{p}
+
+For some patch $U\subset S$, we can use the local coordinates $x^i$ along with $t\in\R$ to define an
+element of $\R^{n+1}$. Any 2-form $F$ can be written as $F=F_{\alpha\beta} dx^\alpha\wedge dx^\beta$ where the summation
+runs over $0\dots n$ and $x^0=t$. We can also express this as $F=F_{0i}dt\wedge dx^i+F_{i0}dx^i\wedge dt+F_{ij}dx^i\wedge dx^j$. 
+But then by 
+antisymmetry of the wedge product, we might as well have $F_{i0}=-F_{0i}$. Then defining $E_i=2F_{0i}$ we have
+$F=E_i dx^i\wedge dt+F_{ij}dx^i\wedge dx^j$. With $B_{ij}=2F_{ij}$ we obtain $F=E\wedge dt+B$. This decomposition is unique 
+because if it were true using different functions $E'_i$ and $B'_{ij}$, then their difference would be zero.
+
+\begin{p}{Show that for any form $\om$ on $\R\times S$ there is a unique way to write $d\om=dt\wedge\partial_t\om+d_S\om$
+such that for any local coordinates $x^i$ on $S$, writing $t=x^0$, we have $d_S\om=\partial_i \om_I dx^i\wedge dx^I$ and
+$dt\wedge \partial_t\om=\partial_0\om_I dx^0\wedge dx^I$.}
+\end{p}
+
+First write $\om=\om_I dx^I$ for $I$ a multi-index of length $p$ (i.e. a $p$-tuple whose entries range over $0\dots n$, where
+$n$ is the dimension of $S$). Then $d_S\om=\partial_i \om_I dx^i\wedge dx^I$ and $\partial_t\om=\partial_0\om_I$. Again, uniqueness
+follows from linearity: if there were two possibilities, their difference would be zero by the linearity of $d$, implying their equality.
+
+\begin{p}{Use the nondegeneracy of the metric to show that the map from $V$ to $V^*$ given by $v\mapsto g(v,\cdot)$ is 
+an isomorphism, that is, 1-to-1 and onto.}\end{p}
+
+Nondegeneracy of the metric means that if $g(v,w)=0$ for all $w$, then $v=0$. Now, for the map to be an isomorphism, we have to 
+check the two conditions. First 1-to-1: different inputs result in different outputs. So we check if the difference of the 
+outputs is zero: $g(v,\cdot)-g(w,\cdot)=g(v-w,\cdot)\neq 0$ unless $v=w$. Next is the onto condition: is every element of $V^*$ the image
+of some $v\in V$? Yes, consider $\om\in V^*$ and consider the action on a basis: $\om_\mu=\om(e_\mu)$. Setting $\om_\mu=g(v,e_\mu)$, 
+we have to solve for $v$. Expanding $v=v^\mu e_\mu$ we obtain $\om_\mu=v^\nu g(e_\nu,e_\mu)=v^\nu g_{\nu,\mu}$. But
+the nondegeneracy of $g$ implies that $g_{\nu,\mu}$ is invertible. Suppose we have $g(v,w)=g_{\mu,\nu}v^\mu w^\nu=0$ for all $w$. Then
+$g_{\mu,\nu}v^\mu=0$ for all $\nu$. But this only occurs when $v^\mu=0$ for all $\mu$, meaning that $g_{\mu,\nu}$ never annihilates
+an input vector; it has full rank. Thus, it's invertible.  So we can solve the equation for $v$.\\
+
+There's a more direct proof for the vector spaces we are considering here: by exercise 28, we know the dual space
+has the same dimension as the original space. Thus, nothing in the dual can be outside the image of the original space, since if
+were, it would consititute a new basis element.
+
+\begin{p}{Let $v=v^\mu e_\mu$ be a vector field on a chart. Show that the corresponding 1-form $g(v,\cdot)$ is equal to $v_\nu f^\nu$, where $f^\nu$ is the dual basis of 1-forms and $v_\nu=g_{\mu,\nu}v^\mu$.}\end{p}
+
+We can follow the lines of the previous exercise to derive the form, or simply show that the equation is correct. Choosing an 
+arbitrary vector field $w$, $g(v,w)=g_{\mu,\nu}v^\mu w^\nu$ which is equal to $v_\nu f^\nu(w)=v_\nu w^\nu$.
+
+\begin{p}{Let $\om=\om_\mu f^\mu$ be a 1-form on a chart. Show that the corresponding vector field is equal to
+$\om^\nu e_\nu$ where $\om^\nu=g^{\mu,\nu}\om_\mu$.}\end{p}
+
+For arbitrary $v$, $\om(v)=\om_\mu f^\mu(v)=\om_\mu v^\mu$. But there should be a $w$ such that $g(w,v)=\om_\mu v^\mu$. 
+Using the series expression for $v$ and $w$, we obtain $\om_\nu v^\nu=g_{\mu,\nu}w^\mu v^\nu$. This should hold for arbitrary $v$,
+so $\om_\nu=g_{\mu,\nu}w^\mu$, or $w^\mu=g^{\mu,\nu}\om_\nu$.
+
+\begin{p}{Let $\eta$ be the Minkowski metric on $\R^4$. Show that its components in the standard basis
+are $\eta_{\mu,\nu}=\delta_{\mu,\nu}(1-2\delta_{\mu,0})$.}\end{p}
+
+The Minkowski metric is defined for two vectors $v$ and $w$ as $\eta(v,w)=-v^0w^0+v^1w^1+v^2w^2+v^3w^3$. The
+form of $\eta_{\mu,\nu}$ follows immediately. 
+
+\begin{p}{Show that $g^\mu_\nu=\delta^\mu_\nu$.}\end{p}
+
+If we start with $g_{\lambda,\nu}$ we can raise the first index with the metric, obtaining $g^\mu_\nu=g^{\mu,\lambda}g_{\lambda,\nu}$.
+But $g^{\lambda,\nu}$ is the matrix inverse of $g_{\lambda,\nu}$, so the result of the product is the Kronecker delta.
+
+\begin{p}{Show that the inner product of $p$-forms is nondegenerate by supposing that $(e^1,\dots,e^n)$ is any
+orthonormal basis of 1-forms in some chart, with $g(e^i,e^i)=\epsilon(i)$ for $\epsilon(i)=\pm 1$. Show the $p$-fold
+wedge products $e^{i_1}\wedge\dots\wedge e^{i_p}$ form an orthonormal basis of $p$-forms with 
+$\langle e^{i_1} \wedge\dots\wedge e^{i_p},e^{i_1}\wedge\dots\wedge e^{i_p}\rangle=\epsilon(i_1)\cdots\epsilon(i_p)$.}\end{p}
+
+From exercise 52 we already know that the nondegeneracy of $g$ is equivalent to the invertibility of the matrix of $g$ applied to basis 
+elements. The same will be true here.  First recall that the terms in
+the $p$-fold wedge products must be distinct so that the $p$-form doesn't vanish. 
+Suppose we have two basis $p$-forms in which $m$ basis 1-forms
+appear in both. Reordering so that these come first, the matrix of $g(e^{i_j},e^{k_\ell})$ will be block diagonal with the first
+$m\times m$ block equal to the identity matrix, and zero everywhere else. This matrix obviously has zero determinant, thus
+the basis $p$-forms with any distinct elements are orthogonal. Otherwise, the determinant yields the product of the individual
+normalizations, establishing the last equation posed in the problem. This in turn means that the metric matrix 
+for the basis $p$-forms is diagonal with entries $\pm 1$, whence it has full rank and is therefore nondegenerate.
+
+\begin{p}{Let $E=E_j dx^j$ be a 1-form on $\R^3$ with its Euclidean metric. Show that $\langle E,E\rangle=E_x^2+E_y^2+E_z^2$. Similarly, let $B=B_x dy\wedge dz+B_y dz\wedge dx+B_z dx\wedge dy$ be a 2-form. 
+Show that $\langle B,B\rangle = B_x^2+B_y^2+B_z^2$.}\end{p}
+
+$\langle E,E\rangle=\delta^{i,j}E_i E_j=E_x^2+E_y^2+E_z^2$.  $\langle B,B\rangle=\langle B_x dy\wedge dz+B_y dz\wedge dx+B_z dx\wedge dy,
+B_x dy\wedge dz+B_y dz\wedge dx+B_z dx\wedge dy\rangle= B_x^2+B_y^2+B_z^2$ since the different wedge products are orthonormal.\\
+
+\begin{p}{In $\R^4$ let $F$ be the 2-form given by $F=B+E\wedge dt$, where $E$ and $B$ are given by the formulas
+in the previous exercise. Using the Minkowski metric, calculate $-\frac{1}{2}\langle F,F\rangle$.}\end{p}
+
+$\langle F,F\rangle=\langle B+E\wedge dt,B+E\wedge dt\rangle=\langle B,B\rangle+\langle B,E\wedge dt\rangle+\langle E\wedge dt,B\rangle
++\langle E\wedge dt,E\wedge dt\rangle$. The middle two terms are zero by orthogonality of different wedge products, leaving only the
+last term to deal with. $\langle E\wedge dt,E\wedge dt\rangle={\rm det}\left(\begin{array}{cc}\langle E,E\rangle & \langle E,dt\rangle\\
+\langle dt,E\rangle & \langle dt,dt\rangle\end{array}\right)={\rm det}\left(\begin{array}{cc}\langle E,E\rangle & 0\\
+0 &-1\end{array}\right)=-\langle E,E\rangle$. Hence $-\frac{1}{2}\langle F,F\rangle=\frac{1}{2}(\langle E,E\rangle-\langle B,B\rangle)$,
+which is the Lagrangian of the source(charge)-free field.\\
+
+\begin{p}{Show that any even permutation of a given basis has the same orientation, while any odd permutation has the
+opposite orientation.}
+\end{p}
+
+To check this we must examine the determinant. Since the determinant of a product is the product of determinants, we can
+break up the permutation of basis elements into a product of pairwise swaps, whose individual determinant is minus one. Thus,
+if the permutation has an even number of swaps, the new basis has the same orientation, while an odd number of swaps 
+implies the determinant will equal minus one.
+
+\begin{p}{Let $M$ be an oriented manifold. Show that we can cover $M$ with oriented charts $\phi_\alpha:U_\alpha\rightarrow\rn$, that is,
+charts such that the basis $dx^\mu$ of cotangent vectors on $\rn$, pulled back to $U^\alpha$ by $\phi_\alpha$, is positively
+oriented.}
+\end{p}
+
+The point here is that the volume form on $\rn$ can be pulled back to $U_\alpha$ by $\phi_\alpha$. 
+Since $M$ is orientable, we can define a volume form $\om$ on all of $M$ to specify the standard orientation. In the chart
+$U_\alpha$ we can also define a volume form by pulling back the standard volume form $\bigwedge_\mu dx^\mu$ from $\rn$. 
+If this specifies a different orientation, just reorder the basis of $\rn$ so as to have the same orientation as given by $\om$.
+Since $\om$ exists in all charts $U_\alpha$, we can always orient these appropriately.
+
+\begin{p}{Given a diffeomorphism $\phi:M\rightarrow N$ from one oriented manifold to another, we say that $\phi$ is
+orientation-preserving if the pullback of any right-handed basis (standard orientation) of a cotangent space in $N$ is a 
+right-handed basis of a cotangent space in $M$. Show that if we can cover $M$ with charts
+such that the transition functions $\varphi_\alpha\circ \varphi_\beta^{-1}$ are orientation-preserving, we 
+can make $M$ into an oriented manifold by using the charts to transfer the 
+standard orientation on $\rn$ to an orientation on $M$.}
+\end{p}
+
+In each chart pull the standard volume form on $\rn$ back to $M$. Since
+any two charts are connected by an orientation-preserving transition function, the orientation is
+the same in any chart and the manifold is oriented everywhere.\\
+
+\begin{p}{Let $M$ be an oriented $n$-dimensional semi-Riemannian manifold and let $\{e_\mu\}$ be an oriented orthonormal
+basis of cotangent vectors at some point $p\in M$. Show that $e_1\wedge\dots\wedge e_n={\rm vol}_p$ where \emph{vol} is 
+the volume form associated to the metric on $M$, and \emph{vol}$_p$ is its value at $p$.}
+\end{p}
+
+The oriented basis in question can be generated from the standard basis by applying a transformation $T$. Since 
+the input and output are orthonormal bases, $T$ is an orthogonal matrix, implying det$T=\pm 1$. 
+Because it's orientation preserving, det$T=1$. Since in transforming $e_1\wedge\dots\wedge e_n$ into the standard
+basis at $p$, we pick up a factor equal to the determinant of $T$,  $e_1\wedge\dots\wedge e_n={\rm vol}_p$.
+
+\begin{p}{Show that if we define the Hodge star operator in a chart using the formula $\star(e^{i_1}\wedge \cdots \wedge
+e^{i_p})=\pm e^{i_{p+1}}\wedge \cdots \wedge e^{i_n}$, where the second set of indices consists of those not contained in the
+first and the $\pm$ is given by ${\rm sign}(i_1,\dots,i_n)\epsilon(i_1)\cdots \epsilon(i_p)$, it satisfies the property $\om\wedge\star\mu=
+\langle\om,\mu\rangle{\rm vol}$.}
+\end{p}
+
+First expand $\om$ and $\mu$: $\om=\om_\alpha e^{\alpha_1}\wedge\cdots\wedge e^{\alpha_p}$, 
+$\mu=\mu_\beta e^{\beta_1}\wedge\cdots\wedge e^{\beta_p}$. Now compute their inner product:
+$\langle \om,\mu\rangle=\om_\alpha\mu_\beta\langle e^{\alpha_1}\wedge\cdots\wedge e^{\alpha_p}, 
+e^{\beta_1}\wedge\cdots\wedge e^{\beta_p}\rangle=\om_\alpha\mu_\beta\delta^{\alpha,\beta}\epsilon(\alpha_1)\cdots\epsilon(\alpha_p)$. 
+Now $\star\mu=\pm\mu_\alpha e^{\alpha_{p+1}}\wedge\cdots\wedge 
+e^{\alpha_n}$, and taking the wedge product with $\om$, one obtains $\om\wedge\star\mu=\pm\om_\alpha\mu_\beta\delta^{\alpha,\beta}
+e^{\alpha_1}\wedge\cdots e^{\alpha_n}$. Finally, $e^{\alpha_1}\wedge\cdots e^{\alpha_n}={\rm sign}(\alpha_1,\dots,\alpha_n){\rm vol}$, 
+so we obtain the desired result.
+
+\begin{p}{Calculate $\star d\om$ when $\om$ is a 1-form on $\R^3$.}\end{p}
+
+$\star d\om$ is essentially the curl of $\om$. 
+First expand $\om$ in an orthonormal basis $e^j$: $\om=\om_je^j$. $d\om=\partial_k\om_j dx^k\wedge dx^j$. Finally, $\star d\om=
+\partial_j\om_k\, {\rm sign}(j,k,\ell)dx^\ell=\partial_j\om_k \epsilon^{jk}_\ell dx^\ell.$ Note that $\epsilon(i)=1$ for all $i$ in this case.
+
+\begin{p}{Calculate $\star d\,{\star}\om$ when $\om$ is a 1-form on $\R^3$.}\end{p}
+
+This gives the divergence of $\om$. Expanding $\om$ in a basis as above, we obtain $\star\om=\om_j\epsilon^j_{k\ell}dx^k\wedge dx^\ell$.
+Applying $d$ gives $d\star\om=\partial_m\om_j\epsilon^j_{k\ell}dx^m\wedge dx^k\wedge dx^\ell$. Another $\star$ yields the final
+result: $\star d\star\om=\partial_m\om_j\epsilon^j_{k\ell}\epsilon^{mk\ell}$ and since $\epsilon^j_{k\ell}\epsilon^{mk\ell}=\delta^{jm}$, we
+have $\star d\star\om=\partial_j\om_k\delta^{jk}$, the divergence.
+
+\begin{p}{Give $\R^4$ the Minkowski metric and the orientation in which
+$(dt,dx,dy,dz)$ is positively oriented. Calculate the Holdge star operator on all wedge products of
+$dx^\mu$'s Show that on $p$-forms $\star^2=(-1)^{p(4{-}p)+1}$.}
+\end{p}
+
+First we have the definition vol$=dt\wedge dx\wedge dy\wedge dz$. Using this we can make a table
+of the various starred wedge products. 
+
+
+\begin{tabular}{c|c}
+$\omega$ & $\star\omega$\\\hline
+$dt$ & $-dx\wedge dy\wedge dz$\\
+$dx$ & $-dt\wedge dy\wedge dz$ \\
+$dy$ & $dt\wedge dx\wedge dz$\\
+$dz$ & $-dt\wedge dx\wedge dy$\\
+$dt\wedge dx$ & $-dy\wedge dz$\\
+$dt\wedge dy$ & $dx\wedge dz$ \\
+$dt\wedge dz$ &$-dx\wedge dy$\\
+$dx \wedge dy$ & $dt\wedge dz$ \\
+$dx \wedge dz$ & $-dt\wedge dy$\\
+$dy \wedge dz$ & $dt\wedge dx$\\
+$dt\wedge dx\wedge dy$ & $-dz$ \\
+$dt\wedge dx\wedge dz$ & $dy$\\
+$dt\wedge dy\wedge dz$ & $-dx$\\
+$dx\wedge dy\wedge dz$ & $-dt$
+\end{tabular}\\
+
+From the table we immediately see that the given condition is fulfilled.
+
+\begin{p}{Let $M$ be an oriented semi-Riemannian manifold of dimension
+$n$ and signature $(s,n{-}s)$. Show that on $p$-forms $\star^2=(-1)^{p(n-p)+s}$.}
+\end{p}
+
+$\om\wedge \star \om=\langle \om,\om\rangle {\rm vol}$ and $\star\om \wedge \star^2\om=\langle \star\om,
+\star\om\rangle{\rm vol}$, so $\star\om \wedge \star^2\om=(-1)^{p(n{-}p)}\star^2\!\om\wedge \star\om=
+\frac{\langle \star\om, \star\om\rangle}{\langle \om,\om\rangle}\,\om\wedge\star\om$. Hence
+$\star^2=(-1)^{p(n{-}p)}\frac{\langle \star\om, \star\om\rangle}{\langle \om,\om\rangle}$. 
+To evaluate this expression,
+let $\om$ be a basis $p$-form $e^{i_1}\wedge\dots\wedge e^{i_p}$. 
+Setting $\epsilon(\mu)=\langle e^\mu,e^\mu\rangle$, we have 
+$\langle\om,\om\rangle=\prod_{j=1}^p \epsilon(i_j)$. On the other hand, 
+$\star\om=\pm e^{i_{p+1}}\wedge\dots\wedge e^{i_n}$, so $\langle \star\om,\star\om\rangle=
+\prod_{j=p+1}^n \epsilon(i_{p+j})$. Since all the terms in the denominator are $\pm 1$, we might as
+well multiply by $\langle\om,\om\rangle$ instead of dividing. We then obtain
+$\star^2=(-1)^{p(n{-}p)}\prod_{j=1}^n \epsilon(i_j)$. The latter term equals $(-1)^s$ as $s$ is the 
+number of basis elements with norm $-1$.
+
+\begin{p}{Let $M$ be an oriented semi-Riemannian manifold of dimension $n$ and signature $(s,n{-}s)$. 
+Let $e^\mu$ be an orthonormal basis of 1-forms on some chart. Define the 
+Levi-Civita sympbol for $1\leq i_j\leq n$ by 
+\[ \epsilon_{i_1\dots i_n}=\left\{
+\begin{array}{ll}
+{\rm sign}(i_1\dots i_n) & \textrm{all $i_j$ distinct}\\0 &{\rm otherwise}
+\end{array}
+\right. \]}
+Show that for any $p$-form $\om=\frac{1}{p!}\om_{i_1\dots i_p}e^{i_1}\wedge\dots\wedge e^{i_p}$ we
+have $(\star\om)_{j_1\dots j_{n{-}p}}=\frac{1}{p!}\epsilon^{i_1\dots i_p}_{j_1\dots j_{n{-}p}}\om_{i_1\dots i_p}$.
+\end{p}
+
+Using the results of exercise 64, we have $\star(e^{i_1}\wedge \cdots \wedge
+e^{i_p})=\epsilon(i_1)\cdots \epsilon(i_p)\epsilon^{i_1\dots i_p}_{i_{p+1}\dots i_{n}}e^{i_{p+1}}\wedge \cdots \wedge e^{i_n}$ 
+(no sum). Now $(\star\om)_{j_1\dots j_{n{-}p}}=\epsilon(j_1)\cdots \epsilon(j_{n{-}p})\langle e^{j_1}\wedge\dots \wedge e^{j_{n{-}p}},\star \om\rangle$, so $(\star\om)_{j_1\dots j_{n{-}p}}=\frac{(-1)^s}{p!}\epsilon^{i_1\dots i_p}_{j_1\dots j_{n{-}p}}\om_{i_1\dots i_p}$. 
+
+\begin{p} {Show that the Maxwell equations $\nabla\cdot \vec{E}=\rho, \nabla\times \vec{B}-\frac{\partial \vec{E}}{\partial t}=\vec{j}$ can be rewritten as $\star_S\, d_S \star_S\! E=\rho$ and $-\partial_t E+\star_S \,d_S\star_S\! B=j$.}
+\end{p}
+
+Start from $E=E_j dx^j$. For the remainder of the exercise, $\star$ means $\star_S$. So $\star E=\frac{1}{2}E_j \epsilon^{j}_{k\ell}dx^k\wedge dx^\ell$. Then $d\star\!E=\frac{1}{2}\epsilon^j_{k\ell}\partial_m E_j dx^m\wedge dx^k\wedge dx^\ell$, and finally $\star d\star\! E=\frac{1}{2}\epsilon^{j}_{k\ell}\epsilon^{mk\ell}\partial_m E_j=\partial_j E_j=\nabla\cdot\vec{E}$. Meanwhile $B=\frac{1}{2}\epsilon^j_{k\ell} B_j dx^k\wedge dx^\ell$. Thus $\star B=\frac{1}{2}\epsilon^j_{k\ell}\epsilon^{k\ell}_m B_j dx^m=B_j dx^j$. Then $d\star\!B=\partial_k B_j dx^k\wedge dx^j$
+and $\star d\star\!B=\epsilon^{kj}_\ell \partial_k B_j dx^\ell$, the components of which are simply
+$\nabla\times \vec{B}$.\\
+
+\begin{p}
+{Show that on a  semi-Riemannian manifold $M$ which can
+be decomposed into $\R\times S$, where $S$ is space, the general Maxwell 
+equations $dF=0$ and $\star d\star F=J$ can be transformed into their ``usual'' 
+appearance $d_S E=0, \partial_t B+d_SE=0, \star_Sd_S\star_SE=\rho,$ and
+$\star_Sd_S\star_SB-\partial_tE=j$.}
+\end{p}
+
+Given the decomposition of $M$, we write $F=B+E\wedge dt$ where $B$ is the
+portion of $F$ defined only on $S$. Similarly $J=j-\rho dt$. 
+The first equation then reads $dB+dE\wedge dt=0$. Observe that 
+$dB=d_SB+\partial_t B\wedge dt$
+while $dE\wedge dt=\partial_t E dt\wedge dt+d_S E\wedge dt$. Thus we have 
+$d_S B=0$ and $\partial_t B+d_S E=0$; the first equation deals with three forms 
+only on space, while the second involves three forms on space and time. 
+Assume further that
+the metric can be decomposed into $g=-dt^2+{}^3g$ 
+{\small (can this always be done when the underlying space is a product? 
+The tangent space can be decomposed, it seems clear, 
+from the picture of vectors as arrows pointing tangentially to the surface. In the case of
+a product space, there are arrows for each manifold, and we take their formal product
+to get the tangent to the total manifold. But from the point of view of vectors 
+as derivatives? I think it might be possible by showing that the value of the derivative 
+is equal to making changes on each submanifold separately and then adding them. In
+other words, we have a curve $\gamma(t)$ on $M$, but since $M=\R\times S$, we
+can write this as $(\gamma_1(t),\gamma_2(t))$. Now $\gamma'(t)[f]=\frac{\rm d}{{\rm d}t}f(\gamma(t))=\frac{\rm d}{{\rm d}t}f(\gamma_1(t),\gamma_2(t))=\frac{\partial f}{\partial \gamma_1}\frac{\partial\gamma_1}{\partial t}+\frac{\partial f}{\partial \gamma_2}\frac{\partial\gamma_2}{\partial t}=\gamma_1'(t)[f]|_{\gamma_2(t)}+\gamma_2'[f]|_{\gamma_1(t)}
+\equiv(\gamma_1'(t),\gamma_2'(t))[f].$ That's
+what we do in $\R^n$, after all. I guess it's obvious once you map open sets of 
+the manifold to $\R^n$. But this doesn't mean the metric has to be block diagonal and respect the split; after all that \emph{doesn't} always happen in $\R^n$.)}
+Now let $\star_S$ be the Hodge dual on (differential forms on) $S$. Since $E$ is a one form
+on $S$, $\star E\wedge dt=\star_S E$ and similarly since $B$ is a two form on $S$, 
+$\star B=-\star_S B\wedge dt$ (using the chart from 67).   So $\star F=\star_S E-\star_S B\wedge dt$ and then $d\star F=d_S\star_S E+\star_S(\partial_t E)\wedge dt-d_S\star_S B\wedge dt$. Note that the first term is a three form on space, so $\star d_S\star_S E$ must be a one form on time, $\star d_S\star_S E=-(\star_S d_S\star_S E) dt$, where
+the minus sign can be determined again by the chart from 67. The second term is a three form on space and time, and due to the ordering we'll have $\star(\star_S(\partial_t E)\wedge dt)=-\partial_t E$. The last term is also a three form on space and time and
+we end up with $\star(d_S\star_S B\wedge dt)=-\star_S d_S\star_S B$. Thus $\star_S d_S\star_S E=\rho$ and $-\partial_t E+\star_S d_S\star_SB=j$.
+
+
+\begin{p}{Show that in a Riemannian 4-dimensional manifold any 2-form $F$ can be written as a sum of self-dual and 
+anti-self-dual parts, $F=F_++F_-$ for $\star F_\pm=\pm F_\pm$, if we take $F_\pm=(F\pm\star F)/2$.}
+\end{p}
+
+Clearly $F=F_++F_-$. And 
+$\star F_\pm=(\star F\pm\star^2 F)/2=(\pm F+\star F)/2=\pm(F\pm\star F)/2=\pm F_\pm$.
+
+\begin{p}{Show that in a Lorentizan 4-manifold any 2-form $F$ can be written as a sum of self-dual and 
+anti-self-dual parts, $F=F_++F_-$ for $\star F_\pm=\pm i F_\pm$.}
+\end{p}
+
+Take $F_\pm=(F\mp \star i F)/2$. Then $\star F_\pm=(\star F\mp\star^2 i F)/2=(\pm i F+\star F)/2=\pm i(F\mp \star  i F)/2=\pm i F_\pm$.
+
+\begin{p}{Show that the equations $\star_S E=iB$ and $\star_S B=-i E$ are 
+equivalent and that they both hold if at every time $t$ we have $E=E_i dx^i$ and $B=-(i/2)\varepsilon^j_{\phantom{j}k\ell}E_j dx^k\wedge dx^\ell$.}
+\end{p}
+
+Applying $\star_S$ turns one equation into the other, to they are equivalent. 
+From exercise 69 we know that $\star_S E=(1/2)\varepsilon^j_{\phantom{j}k\ell}E_j dx^k\wedge dx^\ell$ which is clearly equal to $iB$.
+
+\begin{p}{Show that the second Maxwell equation $\partial_t B+d_SE=0$ leads to ${}^3k\wedge E=k_0 B$.}
+\end{p}
+
+Start with $d_S E=d_S(e^{ik_\mu x^\mu}E_j dx^j)=\partial_k(e^{ik_\mu x^\mu}E_j)dx^j\wedge dx^k=i k_k E_jdx^j\wedge dx^k=-i{}^3k\wedge E$. Meanwhile 
+$\partial_t B=ik_0 B$, so $\partial_t B+d_SE=i(k_0 B-{}^3k\wedge E)=0$, the desired 
+result.
+
+\begin{p}%76
+{Show that ${}^3k\wedge E=-ik_0 \star_s E$ implies $k_\mu k^\mu=0$.}
+\end{p}
+
+Start from $\langle {}^3k\wedge E,{}^3k\wedge E\rangle=k_0^2\langle\star_s E,\star_s E\rangle$. 
+Note that the inner product should be antilinear in one of its inputs. Using the coordinate expressions for $E$
+and ${}^3k$ we have $\langle {}^3k\wedge E,{}^3k\wedge E\rangle=k_\ell k_{\ell'}^*E_j E_{j'}^*\langle dx^\ell\wedge dx^j,dx^{\ell'}\wedge dx^{j'}\rangle=k_\ell k_{\ell'}^*E_j E_{j'}^*(\delta^{j j'}\delta^{\ell\ell'}-\delta^{j'\ell}\delta^{j\ell'})=\langle {}^3k,{}^3k\rangle\,\langle E,E\rangle-|\langle {}^3k,E\rangle|^2=\langle {}^3k,{}^3k\rangle\,\langle E,E\rangle$, since $E$ is orthogonal to ${}^3k$.
+On the other hand, $k_0^2\langle\star_s E,\star_s E\rangle=\frac{k_0^2}{4}\varepsilon^j_{k\ell}\varepsilon^{j'}_{k'\ell'}E_jE_{j'}\langle dx^k\wedge dx^\ell,dx^{k'}\wedge dx^{\ell'}\rangle=\frac{k_0^2}{4}\varepsilon^j_{k\ell}\varepsilon^{j'}_{k'\ell'}E_jE_{j'}(\delta^{kk'}\delta^{\ell \ell'}-\delta^{k\ell'}\delta^{k'\ell})=k_0^2\langle E,E\rangle$.
+Thus, $\langle {}^3k,{}^3k\rangle=k_0^2$. Using the metric, we have $k_0^2=-k_0k^0$, and the 
+other components are unchanged, so $k_\mu k^\mu=0$.
+
+
+\begin{p}%77
+{Show $\vec{E}=(0,e^{i(t-x)},-ie^{i(t-x)})$, $\vec{B}=i\vec{E}$ satisfy the vacuum Maxwell equations. [corrected from the book]}
+\end{p}
+
+Since $\vec{\nabla}\cdot \vec{E}=0$ (by inspection), 
+$\vec{\nabla}\cdot \vec{B}=0$, too. Now $\vec{\nabla}\times \vec{E}=\vec{E}$ and $\partial_t \vec{B}=i\partial_t \vec{E}=-\vec{E}$, so $\vec{\nabla}\times \vec{E}+\partial_t \vec{B}=0$. Finally,
+$ \vec{\nabla}\times \vec{B}=i\vec{E}$, so $\vec{\nabla}\times \vec{B}-\partial_t \vec{E}=0$.
+
+\begin{p}%{78}
+{Prove that all self-dual and anti-self-dual plane wave solutions are left and right circularly polarized, respectively.}
+\end{p}
+
+Without loss of generality we can take ${}^3k$ to point in the $x$ direction. Then the self-dual case is worked
+out in detail in the book. Left circular polarization can be recognized from the form of $E$, namely that the 
+polarization vector is proportional to $(1,-i)$; right circular polarization is given by $(1,i)$. 
+In the anti-self-dual case $\star_S E=-iB$ or, equivalently,
+$\star_SB=iE$. The first Maxwell equation $d_SB=0$ reads as before, $B\wedge {}^3k=0$, so
+$\langle E,{}^3k\rangle=0$ still holds. The second equation, $\partial_t B+d_SE=0$, leads to ${}^3k\wedge E=k_0B$ as before. Rewriting this in terms of $E$ we obtain ${}^3k\wedge E=ik_0\star_SE$, which
+again leads to $\langle {}^3k\wedge E,{}^3k\wedge E\rangle=k_0^2\langle\star_s E,\star_s E\rangle$, as 
+in exercise 76. Thus we know that $k$ must be lightlike, so we can assume without loss of generality 
+that $k=dt-dx$. $E$ must be orthogonal to ${}^3k$, so $E=a dy+bdz$. We now use the second 
+Maxwell equation to determine $a$ and $b$. ${}^3k\wedge E=-(a dx\wedge dy+b dx\wedge dz)$, 
+while $ik_0\star_SE=i(a dz\wedge dx+b dx\wedge dy)$, so $b=ia$, which is the condition for right circular
+polarization.
+
+\begin{p}%{79}
+{Let $P:\R^4\rightarrow\R^4$ be the parity transformation $P(t,x,y,z)=(t,-x,-y,-z)$. Show that if $F$ is a self-dual solution of Maxwell's equations, the pullback $P^*F$ is an anti-self-dual solution, and vice versa.}
+\end{p}
+
+We don't really need to show both, since the vice versa part follows from $P^*P^*F=F$. To see that $P^*F$ takes a self-dual solution to an anti-self-dual solution, note that $P^*E=-E$, while $P^*B=B$. (This is why
+$B$ is called an axial vector sometimes.) If $F=dE\wedge dt+B$ was self-dual to begin with, meaning $\star_SE=iB$,  the new $F'=dE'\wedge dt'+B'=-dE\wedge dt+B$ is anti-self-dual: $\star_SE'=-\star_SE=-iB=-iB'$. 
+

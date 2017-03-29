@@ -1,0 +1,214 @@
+
+\subsection{Chapter 6}
+
+\begin{p}%80
+{Show that $\omega = (x dy-ydx)/(x^2+y^2)$ is closed. Show that $\int_{\gamma_0}\omega=-\pi$ while $\int_{\gamma_1}\omega=\pi$. }
+\end{p}
+
+{Let $r=x^2+y^2$. Then $\partial_i r=2x_i$. Now $d\omega=\partial_x(x/r) dy\wedge dx-\partial_y(y/r)dx\wedge dy=(1/r-2x^2/r^2)dy\wedge dx+(1/r-2y^2/r^2)dy\wedge dx
+=(y^2-x^2)/r^2dy\wedge dx+(x^2-y^2)/r^2 dy\wedge dx=0.$ Turning to the integrals,
+$\gamma_0$ is the upper half of the unit circle, traversed from (-1,0) to (1,0). We can
+parameterize this path as $\gamma_0(t)=(\cos \pi(1{-}t),\sin \pi(1{-}t))$, and thus
+$\gamma'_0(t)=\pi(\sin\pi(1{-}t),-\cos\pi(1{-}t))$. In these coordinates and on this path $\omega=(-y/r,x/r)=(-\sin \pi(1{-}t),\cos \pi(1{-}t))$, so $\int_{\gamma_0}\omega=\int_0^1 \omega_{\gamma_0(t)}(\gamma'_0(t)) {\rm d}t=-\pi$.
+The other curve is $\gamma_1(t)=(\cos \pi(1{-}t),-\sin \pi(1{-}t))$, so $\gamma'_1(t)=\pi(\sin\pi(1{-}t),\cos\pi(1{-}t))$ and $\omega_{\gamma_1(t)}=(\sin \pi(1{-}t),\cos \pi(1{-}t))$, leading to $\int_{\gamma_1}\omega=\pi$.}
+
+\begin{p}%81
+{Show that $\R^n$  is simply connected by exhibiting an explicit formula
+for a homotopy between any two paths between arbitrary points $p,q\in\R^n$.}
+\end{p}
+{Let
+$f(t)$ and $g(t)$ be paths from $p$ to $q$. Then define $h(s,t)=sf(t)+(1{-}s)g(t)$. Clearly $h(0,t)=f(t)$ and $h(1,t)=g(t)$ and since all the intervening points are elements of $\R^n$ 
+for all $t$, $h$ is a homotopy between $f$ and $g$.}
+
+
+\begin{p}%82
+{Show that a 1-form $E$ is exact iff $\int_\gamma E=0$ for all loops
+$\gamma$. (Hint: if $E$ is not exact, show that there are two smooth paths $\gamma,\gamma'$ from some point $x\in M$ to some point $y\in M$ such that $\int_\gamma \om\neq \int_{\gamma'} E$. Use these paths to form a loop, perhaps only piecewise smooth.}
+\end{p}
+
+{Start with the `if' statement and let $E=d\phi$ be an exact form and $\gamma$ a loop starting and ending at $p$. Then 
+$\oint_\gamma E=\int_0^1 d\phi(\gamma'(t)){\rm d}t=\int_0^1\gamma'(t)[\phi]{\rm d}t=\int_0^1\frac{\rm d}{{\rm d}s}\phi(\gamma(s))_{s=t}{\rm d}t=\int_0^1[\phi(\gamma(t))]'{\rm d}t=\phi(\gamma(1))-\phi(\gamma(0))=\phi(p)-\phi(p)=0.$
+Now the `only if' part, which we will show by proving the contrapositive.
+If $E$ is closed but not exact, then the manifold must not be simply connected. Then choose two points $x$ and $y$ such that the paths $\gamma,\gamma'$ have no homotopy between them, i.e.~$\gamma$ and $\gamma'$ go on either side of the ``hole'' from $x$ to $y$; together they encircle the hole. Additionally, we must be able to
+find some points $x,y$ and paths $\gamma,\gamma'$ such that $\int_\gamma E\neq \int_{\gamma'}E$ or else we could use this integral to define $\phi$ for which $E=d\phi$. 
+Then defining $\tilde{\gamma}$ to be the path taken by following $\gamma$ forwards and then $\gamma'$ backwards, we have found a path $\tilde{\gamma}$ such that  $\oint_{\tilde{\gamma}} E\neq 0$.}
+
+\begin{p}%{83}
+{For any manifold $M$, show the manifold $S^1\times M$ is not simply connected by finding a 1-form on it that is closed by not exact.}{Picking coordinates $(t,x^j)$ consider the 1-form $\om=$(1,0,\dots,0). Clearly $d\om=0$ so the form is
+closed, but it is not exact. There is no continuous function $\phi$ defined on the whole manifold such that $\om=d\phi$, since if we try to define it using $\int_\gamma \om$ where
+$\gamma$ is a path around $S^1$ and fixed on $M$, we obtain $\phi(t,x^j)=t$, which is multiple-valued.}
+\end{p}
+
+\begin{p}%{84}
+{Let the $n$-disk $D^n$ be defined as $D^n=\{(x_1,\dots,x_n):x_1^2+\dots+x_n^2\leq 1\}$. Show that $D^n$ is an $n$-manifold with
+boundary in an obvious sort of way.}
+\end{p}
+{Locally the neighborhood of each point on the unit circle $S^n$ already looks a lot like $H^{n}$ where the half space is defined by the tangent hyperplane. In particular, we can make
+suitable charts by first using spherical coordinates to describe the points in the disk and then for each point,
+assuming that it lies at the north pole and expanding the coordinates in a Taylor series in $\theta$ to first order. In two dimensions we then obtain $r(\cos \theta,\sin\theta)\rightarrow r(1,\theta)$ and in three dimensions
+$r(\cos\theta,\sin\theta\cos\varphi,\sin\theta\sin\varphi)\rightarrow r(1,\theta\cos\varphi,\theta\sin\varphi)$. We then obtain a cylindrical coordinatization of the neighborhood of the selected point.}
+
+\begin{p}%{85}
+{Check that the definition of tangent vectors in Chapter 3 really does imply that the tangent space at any point on the boudary of an $n$-dimensional manifold with boundary is an $n$-dimensional vector space.}
+\end{p}
+{Tangent vectors are simply maps from $C^\infty$ to $\R$ obeying linearity and the Leibniz rule. If we first map the point on the boundary to the boundary of $H^n$, where $x^n\geq 0$ is the special coordinate, 
+then obviously 
+we still have all the derivatives in the directions $x_1,\dots,x_{n{-}1}$. The derivative in the $x_n$ direction still works as well, since the functions must be smooth to a small region outside the boundary, for which $-\varepsilon<x_n<0$. }
+
+\begin{p}%{86}
+{For the mathematically-inclined reader: prove that $\int_M\om$ is independent of the 
+choice of charts and partition of unity.}
+\end{p}
+...
+
+\begin{p}%{87}
+{Show that $\partial D^n=S^{n{-}1}$.}
+\end{p}
+{In exercise 84 we showed a collection of charts in which
+at every point on the surface of the sphere nearby surface points are mapped to points on $\partial H^n$, thought of as the tangent hyperplane. Thus, surface points are on the boundary. No other points can be on the boundary since they are ``surrounded'' by other points in the manifold. Consider mapping a point in the interior to a point on $\partial H^n$. Not all open sets containing the point are mapped to open sets of $H^n$, and thus the chart transition function isn't smooth (isn't even continuous).}
+
+\begin{p}%{88}
+{Let $M=[0,1]$. Show that Stokes' theorem in this case is equivalent to the fundamental theorem
+of calculus $\int_0^1 {\rm d}x\, f'(x)=f(1)-f(0)$.}
+\end{p}
+{Consider the 1-form $\om=df$. By Stokes' theorem $\int_M \om=\int_0^1 df=\int_{\partial M}f$. The boundary $\partial M$ is manifestly equal to $\{0,1\}$; only the orientation remains to be determined.  $dx$ defines the orientation by defining increasing $x$ to be outward-facing at 1 and inward-facing at 0. Thus $\int_{\partial M}f=f(1)-f(0)$.}
+
+\begin{p}%{89}
+{Let $M=[0,\infty)$, which is not compact. Show that without the assumption that $f$ vanishes outside a compact set, Stokes' theorem may not apply. (Hint: in this case Stokes' theorem says $\int_0^\infty {\rm d}x\, f'(x)=-f(0)$.)}
+\end{p}
+{Choose the function $f'(x)=1$. Then $f(x)=x$. The integral clearly diverges, whereas 
+by Stokes' theorem it would be zero. The function $f'(x)=e^{-x}$ works, though.}
+
+\begin{p}%{90}
+{Show that any submanifold is a manifold in its own right in a natural way.}
+\end{p}
+{A manifold is defined by having charts $\varphi_\alpha$ which smoothly map the open sets $U_\alpha$ to $\R^k$, where smooth means that the transition function $\varphi_\alpha\circ\varphi_\beta^{-1}$ is smooth 
+(infinitely differentiable) where defined. For a submanifold $S\subset M$ we can define the open sets to 
+be of the form $V_\alpha=S\cap U_\alpha$; this is the induced topology. Charts $\varphi_\alpha$ of $M$ are
+guaranteed to satisfy $S\cap U_\alpha=\varphi_\alpha^{-1}\R^k$, which means that every open set in $S_\alpha$ is the preimage of some hyperplane $\simeq\R^k$ under the chart $\varphi_\alpha$. So we can
+just define $\vartheta_\alpha$ to be this map from $S_\alpha$ to $\R^k$. The transition functions
+$\vartheta_\alpha\circ\vartheta_\beta^{-1}$ are smooth because they are equivalent to the transition
+functions $\varphi_\alpha\circ\varphi_\beta^{-1}$, restricted to the corresponding input and output 
+hyperplanes.}
+
+\begin{p}%{91}
+{Show that $S^{n{-}1}$ is a compact submanifold of $\R^n$.}
+\end{p}
+{Use the maps in exercise 84, fixing $r=1$.}
+
+
+\begin{p}%{92}
+{Show that any open subset of a manifold is a submanifold.}
+\end{p}
+{Isn't this just exercise 4?}
+
+\begin{p}%{93}
+{Show that if $S$ is a $k$-dimensional submanifold 
+with boundary of $M$, then $S$ is a manifold with boundary in a natural way. 
+Moreover, show that $\partial S$ is a $(k{-}1)$-dimensional 
+submanifold of $M$.}
+\end{p}
+{Same as exercise 90 except that the hyperplanes have boundaries.
+That doesn't change the fact that the transition functions will be smooth. $\partial S$
+is also a manifold using the charts from $S$ with the modification that the image of
+the chart is now just the boundary of the hyperplane used before. Again, the transition
+functions will be smooth, since they are just restrictions of smooth maps. }
+
+\begin{p}%{94}
+{Show that $D^n$ is a submanifold of $\R^n$ in this sense.}
+\end{p}
+{Isn't this just 
+exercise 84?}
+
+\begin{p}%{95}
+{Suppose that $S\subset \R^2$ is a 2-dimensional compact orientable submanifold with boundary. Work out what Stokes' theorem says when aplied to a 1-form on $S$. This is sometimes called
+Green's theorem.}
+\end{p}
+{Let $\om=\alpha dx+\beta dy$. Then $d\om=(\partial_x \alpha-\partial_y\beta)dx\wedge dy$. Thus $\int_{\partial M}\alpha dx+\beta dy=\int_M (\partial_x \alpha-\partial_y\beta)dx\wedge dy$. To evaluate the lefthand side one should
+make a coordinate transformation by regarding $\partial M$ as a curve $\gamma(t)$, the
+inverse of which we can regard as a map from $\partial M$ to $\R$. This allows us 
+to express $dx$ and $dy$ in terms of the coordinate 1-form $dt$: $dx=\frac{d\gamma^1}{dt}dt$ and likewise for $dy$.}
+
+\begin{p}%{96}
+{Suppose that $S\subset \R^3$ is a 2-dimensional compact orientable submanifold with boundary. Show that Stokes' theorem aplied to $S$ boils down to the classic Stokes's theorem.}
+\end{p}
+{Suppose we work in a patch of $S$ with coordinates $x,y,z$ such that $z$ is fixed, so that $z=c$ defines $S$. On this patch let $\om=v_i dx^i$, where $i=1,2$. Then $d\om=\partial_j v_i dx^j\wedge dx^i$ for $i,j=1,2$. This can 
+be written $d\om=(\partial_2 v_1-\partial_1 v_2)dx^1\wedge dx^2$; the corresponding integral $\int_S d\om=\int_S (\nabla\times \vec{v})\cdot \hat{z}dA$, where $A$ is the area 
+(volume) element of $S$. The boundary of $S$ must be specified by a curve $\gamma(t)=(x^1(t),x^2(t))$. It then follows that $\om=v_i\frac{\partial x^i}{\partial t}dt$ so that the integral can be written $\int_{\partial S}\om=\int \vec{v}\cdot d\vec{\ell}$ with $\vec{\ell}=\frac{\partial x^i}{\partial t}\hat{x}_i$. Thus we have
+ $\int_S (\nabla\times \vec{v})\cdot d\vec{A}=\int \vec{v}\cdot d\vec{\ell}$, the usual Stokes' theorem.}
+
+\begin{p}%{97}
+{Suppose that $S\subset \R^3$ is a 3-dimensional compact orientable submanifold with boundary. Show that Stokes's theorem aplied to $S$ is equivalent to Gauss's theorem, also known as the divergence theorem.}
+\end{p}
+{Let $\om=\alpha dx\wedge dy+\beta dz\wedge dx+\gamma dy\wedge dz$. Then $d\om=\partial_z \alpha dz\wedge dx\wedge dy+\partial_y \beta dy\wedge dz\wedge dx+\partial_x \gamma dx\wedge dy\wedge dz=(\partial_z\alpha+\partial_y\beta+\partial_x \gamma)dx\wedge dy\wedge dz$. Now $\int_{\partial M}\om=\int_M d\om$, the righthand side of which is simply $\int_S(\partial_z\alpha+\partial_y\beta+\partial_x \gamma) dxdydz$. If we define
+$v\equiv\star\om=\alpha dz+\beta dy+\gamma dx$, then this integral is just $\int \partial_iv^i dxdydz$, i.e.~the integral of the gradient of the vector $\vec{v}$. Meanwhile, 
+consider a patch of $\partial S$ covered by coordinates $(s,t)$; that is, a specification of the points on $\partial S$: $x(s,t), y(s,t),$ and $z(s,t)$. Letting $dA=ds\wedge dt$ be the volume element on $\partial S$, then $dx\wedge dy=(\frac{\partial x}{\partial s}\frac{\partial y}{\partial t}-\frac{\partial x}{\partial t}\frac{\partial y}{\partial s})dA$, and similarly for the other 2-forms. Then the lefthand integrand can be written as $\vec{v}\cdot d\vec{A}$ where the vector $\vec{A}=
+\epsilon_{ijk}\hat{x}_i(\frac{\partial x_j}{\partial s}\frac{\partial x_k}{\partial t})$.}
+
+\begin{p}%{98}
+{Show that the pullback of a closed form is closed and the pullback of an exact form is exact.}
+\end{p}
+{The pullback and exterior derivative commute, so if $\om$ is closed, $d\om=0$ and $\phi^*\om$ is also closed, since $d\phi^*\om=\phi^* (d\om)=0$. 
+Similarly, if $\om$ is exact, then so is $\phi^*\om$: $\phi^*\om=\phi^*(d\alpha)=d(\phi^*\alpha)$.}
+
+\begin{p}%{99}
+{Show that given any map $\phi:M\rightarrow M'$ there is a linear map 
+from $H^p(M')$ to $H^p(M)$ given by $[\om]\mapsto[\phi^*\om]$, where
+$\om$ is any closed $p$-form on $M'$. Call this linear map $\phi^*:H^p(M')\rightarrow H^p(M)$. Show that if $\psi:M'\rightarrow M''$ is another map, then $(\psi\phi)^*=\phi^*\psi^*$.}
+\end{p}
+{The linear map is just the pullback:
+since it preserves closed and exact forms, it preserves equivalence classes of closed forms. If
+$\om,\om'$ are closed, so are $\phi^*\om$ and $\phi^*\om'$ and if $\om-\om'=d\mu$, then $\phi^*\om-\phi^*\om'=\phi^*d\mu=d\phi^*\mu$. And the pullback of the composition of maps is the reverse-ordered composition of pullbacks.}
+
+\begin{p}%{100}
+{Show that $\star j=f(r)r\,dr\wedge d\theta$ for $j=f(r)dz$ and $d\theta=\om$ as in exercise 80.}
+\end{p}
+{$\star j=f(r)\star dz=f(r)dx\wedge dy$. Now note that $r dr\wedge d\theta=(xdx+ydy)(xdy-ydx)/r^2=dx\wedge dy$ since $r dr=xdx+ydy$.}
+
+\begin{p}%{101}
+{Show that $\star d\theta=\frac{1}{r}dz\wedge dr$.}{$\star d\theta=(x\star dy-y\star dx)/r^2=(xdz\wedge dx-ydy\wedge dz)/r^2=(dz\wedge(xdx+ydy))/r^2=dz\wedge dr/r$.}
+\end{p}
+
+\begin{p}%{102}
+{Check that $d\star B=\star j$ holds iff $g'(r)=rf(r)$ for $B=\frac{g(r)}{r} dz\wedge dr$.}
+\end{p}
+{$d\star B=d(g(r)d\theta)=g'(r)dr\wedge d\theta=\star j=rf(r)dr\wedge d\theta.$ Thus $g'(r)=rf(r)$ is necessary and sufficient.}
+
+\begin{p}%{103}
+Using the fact that the $n$-dimensional torus $T^n$ is the product of $n$ copies of $S^1$, construct $n$ closed but not exact $1$-forms $d\theta_1$, $d\theta_2$, \dots, $d\theta_n$. Hint: define maps $p_i:T^n\to S^1$ corresponding to projection down to the $i$th coordinate, where $1\leq i\leq n$, and let $d\theta_i=p_i^*d\theta$.
+\end{p}
+...
+
+
+\begin{p}
+\end{p}
+
+
+\begin{p}
+\end{p}
+
+
+\begin{p}
+\end{p}
+
+
+\begin{p}
+\end{p}
+
+
+\begin{p}
+\end{p}
+
+
+\begin{p}
+\end{p}
+
+
+\begin{p}
+\end{p}
+
+
+\begin{p}%111
+\end{p}
+
+

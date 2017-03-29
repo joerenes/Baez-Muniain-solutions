@@ -1,0 +1,183 @@
+%!TEX root = ../gfkg.tex
+\subsection{Chapter 3}
+\begin{p}
+{Show that $v+w$ and $gw\in \text{Vect}(M)$.}
+\end{p}
+
+$[v+w](f+g)=v(f+g)+w(f+g)=v(f)+w(f)+v(g)+w(g)=[v+w](f)+[v+w](g)$\\
+$[v+w](\alpha f)=v(\alpha f)+w(\alpha f)=\alpha (v(f)+w(f))=\alpha[v+w](f)$\\
+$[v+w](fg)=v(fg)+w(fg)=v(f)g+f v(g)+w(f)g+f w(g)=[v+w](f)g+f[v+w](g)$.\\
+
+$[gw](f+h)=g\, w(f+h)=g(w(f)+w(h))=[gw](f)+[gw](h)$.\\
+$[gw](\alpha f)=g\, w(\alpha f)=\alpha g\, w(f)=\alpha[gw](f)$.\\
+$[gw](fh)=g\,w(fh)=g(w(f)h+fw(h))=g\,w(f)h+fg\,w(h)=[gw](f)\,h+f\,[gw](h)$.
+
+
+\begin{p} Show that the following rules hold for all $v, w\in \text{Vect}(M)$ {\em and}
+$f,g\in C^\infty(M)$: 1. $f(v+w)=fv+fw$, 2. $(f+g)v=fv+gv$, 3. $(fg)v=f(gv)$, 4. $1v=v$, where 1 denotes the constant function equal to 1 on all of $M$. This makes $\text{Vect}(M)$ 
+a \emph{module} over $C^\infty(M)$.
+\end{p}
+$f(v+w)[g]=fv(g)+fw(g)$, so the first one holds. The remainder work exactly the same way:
+apply both sides of the equation to a test function and show that they are equal.
+
+\begin{p}
+{Show that if $v^\mu\partial_\mu=0$ we must have $v^\mu=0$ for all $\mu$.}
+\end{p}
+Choose as test functions the coordinate functions $x^\mu$ so that $\partial_\mu x^\mu = 1$ for all
+$\mu$, meaning $v=0$.
+
+\begin{p}
+{Let $v,w\in$ \emph{Vect($M$)}. Show that $v=w$ iff $v_p=w_p$ for all $p\in M$.}
+\end{p}
+If $v=w$ then $v_p=w_p$ since $v_p(f)=v(f)[p]=w(f)[p]=w_p$ for all $f$. If $v_p=w_p$, 
+then $v(f)[p]=v_p(f)=w_p(f)=w(f)[p]$ for all $p\in M$ and $f\in C^\infty(M)$, so $v=w$.
+
+
+\begin{p}
+{Show that $T_p M$ is a vector space over the real numbers.}
+\end{p}
+... Need to show linearity, closedness, and existence of a zero.
+
+\begin{p}
+{Check that $\gamma'(t)\in T_{\gamma(t)}M$.}
+\end{p}
+
+$\gamma'(t)[f+g]=\frac{\rm d}{{\rm d}t}(f(\gamma(t))+g(\gamma(t)))=\gamma'(t)[f]+\gamma'(t)[g]$. Similarly
+we get $\gamma'(t)[\alpha f]=\alpha \gamma'(t)[f]$. Finally, $\gamma'(t)[fg]=\frac{\rm d}{{\rm d}t}
+(f(\gamma(t))g(\gamma(t)))=\gamma'(t)[f]g+f\gamma'(t)[g]$.
+
+\begin{p}
+Let $\phi: \R\rightarrow \R$ be given by $\phi(t)=e^t$. Let
+$x$ be the usual coordinate function on $\R$. Show that $\phi^*x=e^x$.
+\end{p}
+
+The coordinate of the transformed point $\phi(p)$ is clearly $e^{x(p)}$, so $\phi^*x$ should be $e^x$. More
+formally, $\phi^*x(p)=x(\phi(p))=x(e^{p})=e^{x(p)}$ so indeed $\phi^*x=e^x$.
+%It's a little tricky to keep the notion of the coordinate function $x:M\rightarrow \R$ and its value $x(p)$ at the point $p$ distinct, and it will just get worse when looking at derivatives of $x$.\\
+
+{\begin{p}
+{Let $\phi:\R^2\rightarrow \R^2$ be a rotation counterclockwise
+by an angle $\theta$. Let $x,y$ be the usual coordinate functions on $\R^2$. Show that
+$\phi^*x=x\cos \theta-y\sin\theta$ and $\phi^*y=x\sin\theta+y\cos\theta$.}
+\end{p}
+
+Again $\phi^*x(p)=x(\phi(p))$, the $x$ coordinate of the rotated point. 
+If $p$ is the point $(s,t)$, then 
+$\phi(p)=(s',t')=(s\cos\theta-t\sin\theta,s\sin\theta+t\cos\theta)$. 
+Thus $\phi^*x(p)=s\cos\theta-t\sin\theta=x(p)\cos\theta-y(p)\sin\theta$ and similarly for $\phi^*y$. 
+Since the point $p$ is arbitrary, the desired result follows.
+
+\begin{p}{$\phi:M\rightarrow N$ is smooth if $f\in C^\infty(N)$ implies $\phi^*f\in C^\infty(M)$. Show
+that this definition is consistent with smooth functions $f:M\rightarrow\R$ and smooth
+curves $\gamma:\R\rightarrow M$.}
+\end{p}
+
+A function $f:N\rightarrow\R$ is smooth if 
+$f\circ\varphi^{-1}_\alpha:\R^n\rightarrow \R$ is smooth
+for all $\alpha$. Pulling the function back by using $\phi$ makes a new smooth function $f':M\rightarrow 
+\R$ where $f'=f\circ\phi$ since its smoothness is determined by
+that of $(f\circ\phi)\circ(\varphi_\alpha\circ\phi)^{-1}=f\circ\varphi^{-1}_\alpha$ which is assumed to
+be smooth. Any other coordinate system for $M$ would also produce a smooth result, since the 
+different systems are related by smooth coordinate transformations.
+
+\begin{p}{Prove that $(\phi\circ\gamma)'(t)=\phi_*(\gamma'(t))$}
+\end{p}
+
+$\phi_*(\gamma'(t))[f]=\gamma'(t)(\phi^*f)=\gamma'(t)(f\circ\phi)=\frac{\rm d}{{\rm d}t}(f\circ\phi)(\gamma(t))=\frac{\rm d}{{\rm d}t}f(\phi(\gamma(t)))=\frac{\rm d}{{\rm d}t}f((\phi\circ\gamma)(t))=(\phi\circ\gamma)'(t)[f]$
+
+\begin{p}
+ Show that the pushforward operation $\phi_*:T_pM\rightarrow T_{\phi(p)}N$ is linear.
+ \end{p}
+
+$\phi_*(v+w)[f]=(v+w)(\phi^*f)=v(\phi^*f_+w(\phi^*f)=\phi_*v[f]+\phi_*w[f]$ and similarly for scalars $\alpha$.
+
+\begin{p}{Show that if $\phi:M\rightarrow N$
+we can push forward a vector field $v$ on $M$ to obtain a vector field 
+$\phi_*v$ on $N$ satisfying $(\phi_*v)_q=\phi_*(v_p)$ whenever $\phi(p)=q$.}
+\end{p}
+
+Since the vector fields can be specified pointwise, it suffices to consider a general point $p$. 
+Now, $(\phi_*v)_q[f]=\phi_*v(f)[q]=v(f\circ\phi)[p]=v_p(\phi^*f)=\phi_*(v_p)[f]$.
+
+\begin{p}
+{Let $\phi:\R^2\rightarrow\R^2$ be rotation counterclockwise
+by an angle $\theta$. Let $\partial_x,\partial_y$ be the coordinate vector fields on $\R^2$. 
+Show that at any point of $\R^2$: $\phi_*\partial_x=(\cos\theta)\partial_x+(\sin\theta)\partial_y$
+and $\phi_*\partial_y=-(\sin\theta)\partial_x+(\cos\theta)\partial_y$.}
+\end{p}
+
+Intuitively, this is just a rotation of the vectors, since they are tangent vectors to the coordinate paths
+which are rotated by $\phi$. To make this more precise, consider $(\phi_*\partial_x)f=\partial_x(\phi^*f)=
+\partial_x(f\circ\phi)$. Note that $\partial_x$ really means the derivative of the
+function with respect to whatever quantity is in the first input; choosing the point $(x,y)$ as the input
+makes this automatic. Then $\partial_x(f\circ\phi)(x,y)=\partial_uf \cdot \partial_x u+\partial_v f\cdot \partial_x v$, where $(u,v)=(x\cos\theta-y\sin\theta,x\sin\theta+y\cos\theta)=\phi(x,y)$. We then obtain
+$(\phi_*\partial_x)f=(\cos\theta)\partial_u f+(\sin\theta)\partial_vf$. Since $u$ is the first input to $f$, $\partial_u$ is
+the same as $\partial_x$ in the rotated space, and similarly for $v$ and $y$. This gives us
+$\phi_*\partial_x=(\cos\theta)\partial_x+(\sin\theta)\partial_y$; the same argument works for $\phi_*\partial_y$.
+
+\begin{p}{Let $v$ be the vector field $x^2\partial_x+y\partial_y$ on $\R^2$. Calculate 
+the integral curves $\gamma(t)$ and see which ones are defined for all $t$.}
+\end{p}
+
+We start by making up a representation. $\gamma'(t)[f]=\frac{\rm d}{{\rm d}t}f(\gamma(t))
+=\partial_\mu f\frac{{\rm d}\gamma^\mu}{{\rm d}t}$, so $\gamma'(t)=
+\frac{{\rm d}\gamma^\mu}{{\rm d}t}\partial_\mu$. 
+If $\gamma(t)=(x(t),y(t))$, then $\gamma'(t)=\dot{x}(t)\partial_x+\dot{y}(t)\partial_y$. 
+Then $\dot{x}=x^2$ and $\dot{y}=y$. The solution is $\gamma(t)=(x(0)/(1-x(0)t),y(0)e^t)$, which
+is finite for finite $t$ provided $1-x(0)t\neq 0$. Thus, only the curves with $x(0)=0$ are defined for all
+$t$.
+
+\begin{p}{Show that $\phi_0$ is the identity map id:$X\rightarrow X$, and that for all $s,t\in\R$ we have $\phi_t\circ\phi_s=\phi_{t+s}$.}
+\end{p}
+
+The point $p$ is translated to the point $\gamma(t)$ along the integral curve $\gamma$ of $v$ with $p$
+as the initial point. Since $\gamma(0)=p$, $\phi_0(p)=p$. Moreover, as the integral curve is the solution
+to a first-order differential equation, the solutions are unique and the curves don't intersect. If we move
+apply $\phi_t\circ\phi_s$ to $p$ we are first moving the point $p=\gamma(0)$ to $\gamma(s)$ and then using
+this point as the new intial value for the integral curve so that we can move it to $\widetilde{\gamma}(t)$. But 
+the curves are unique and any point on the curve defines a boundary condition which together with
+the differential equation, yields the curve. Thus, $\gamma$ and $\widetilde{\gamma}$ are the same curve
+with the same parameterization (except for the offset).
+
+\begin{p}
+{Consider the normalized vector fields in the $r$ and $\theta$ direction on the plane in polar coordinates (not defined at the origin):
+\[
+v=\frac{x\partial_x+y\partial_y}{\sqrt{x^2+y^2}},\qquad w=\frac{x\partial_y-y\partial_x}{\sqrt{x^2+y^2}}
+\]
+Calculate $[v,w]$}.
+\end{p}
+
+Let's put this into component notation first. Define $\bar{r}=1/\sqrt{x^2+y^2}$,
+$x_0=x$, and $x_1=y$. Then $v=\bar{r}x^k\partial_k$ while $w=\bar{r}\epsilon^j_i x^i\partial_j$, for $\epsilon^j_i$ the antisymmetric symbol/tensor. Before getting started, note that $\partial_j\bar{r}=-x_j\bar{r}^3$ (watch out for the lower index!). Now
+\begin{eqnarray*}
+[v,w]&=&vw-wv=\bar{r}x^k\partial_k(\bar{r}\epsilon^j_ix^i\partial_j)-
+\bar{r}\epsilon^j_ix^i\partial_j(\bar{r}x^k\partial_k)\\
+&=&\bar{r}^2\epsilon^j_ix^k\left(\delta_k^i\partial_j+x^i\partial_k\partial_j-\bar{r}^2x_k x^i\partial_j\right)-\bar{r}^2\epsilon^j_i x^i\left(\partial_j+x^k\partial_j\partial_k-\bar{r}^2 x_j x^k\partial_k\right)\\
+&=&-\bar{r}^4x^kx_k\epsilon^j_i x^i\partial_j=-\bar{r}^2\epsilon^j_i x^i\partial_j=-\frac{x\partial_y-y\partial_x}{x^2+y^2}=-\frac{w}{r},
+\end{eqnarray*}
+since $[\partial_i,\partial_j]=0$ and $\epsilon^j_ix^ix_j=0$.
+
+\begin{p}{Check that $[v,w](f)(p)=\frac{\partial^2}{\partial t \partial s}\left[
+f(\psi_s(\phi_t(p)))-f(\phi_t(\psi_s(p)))\right]_{s=t=0}$}
+\end{p}
+
+Start with $(vf)(p)=\frac{d}{dt}f(\phi_t(p))|_{t=0}$ and
+$(wf)(p)=\frac{d}{ds}f(\psi_s(p))|_{s=0}$. 
+Then we have $(vwf)(p)=v(wf)(p)=\frac{d}{dt}wf(\phi_t(p))|_{t=0}=\frac{\partial^2}{\partial t\partial s}f(\psi_s(\phi_t(p)))|_{s=t=0}$. Note that $wf$ means take $f$ and displace its input a little bit, and evaluate the derivative at zero
+displacement. In the compound expression, the input to $f$ is $\phi_t(p)$, so $\psi_s$ ends up first inside $f$ in the final expression. Alternatively, we could work from inside-out: $v(wf)(p)=v\left(\frac{d}{dt}f(\psi_s(\cdot))|_{s=0}\right)(p)=\frac{\partial^2}{\partial t\partial s}f(\psi_s(\phi_t(p)))|_{s=t=0}.$
+Similarly, $(wvf)(p)=\frac{\partial^2}{\partial t\partial s}f(\phi_t(\psi_s(p)))|_{s=t=0}$, so the expression for the commutator holds.
+
+\begin{p}{Show that for all vector fields $u, v, w$ on a manifold, and all real numbers $\alpha$ and $\beta$, we have:
+\begin{enumerate}
+\item $[v,w]=-[w,v]$
+\item $[u,\alpha v+\beta w]=\alpha[u,v]+\beta[u,w]$
+\item The {\bf Jacobi identity}: $[u,[v,w]]+[v,[w,u]]+[w,[u,v]]=0$
+\end{enumerate}}
+\end{p}
+\begin{enumerate}
+\item $[u,v]=uv-vu=-(vu-uv)=-[v,u]$
+\item $[u,\alpha v+\beta w]=u(\alpha v+\beta w)-(\alpha v+\beta w)u=\alpha[u,v]+\beta[u,w]$
+\item $[u,[v,w]]=u(vw-wv)-(vw-wv)u$, so $[u,[v,w]]+[v,[w,u]]+[w,[u,v]]=
+u(vw-wv)-(vw-wv)u+v(wu-uw)-(wu-uw)v+w(uv-vu)-(uv-vu)w=0$
+\end{enumerate}
+

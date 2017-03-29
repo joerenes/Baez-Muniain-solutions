@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+%\usepackage{a4wide}
+\usepackage[margin=2.5cm,a4paper]{geometry}
+%\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{paralist}
+\usepackage{bbm}
+\usepackage{amssymb}
+\usepackage{pdfpages}
+\usepackage[T1]{fontenc}
+
+\usepackage[pdftex,bookmarks,colorlinks,breaklinks,pdfpagelabels]{hyperref} 
+
+\usepackage{epic,eepic,latexsym,verbatim}
+%\usepackage{youngtab}
+%\usepackage{bbm}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bra}[1]{\langle #1|}
+\newcommand{\bracket}[2]{\langle #1|#2\rangle}
+\newcommand{\ketbra}[1]{|#1\rangle\langle #1|}
+\newcommand{\average}[1]{\langle #1\rangle}
+\newcommand{\minus}{\!-\!}
+
+\newcommand{\om}{\omega}
+%\newcommand{\th}{\theta}
+\newcommand{\rn}{\mathbb{R}^n}
+\newcommand{\R}{\mathbb{R}}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Theorem}
+\newcommand{\question}[2]{{\bf #1} {\em #2}\\}
+\newcommand{\problem}[3]{{\bf #1} {\em #2}\\[5\lineskip]
+{#3}}
+
+\newcounter{dummy}
+\setcounter{dummy}{0}
+\newtheorem{p}{Exercise}[dummy]
+\renewcommand\thep{\arabic{p}}
+\setcounter{secnumdepth}{0}
+\overfullrule=5pt
+
+\author{Joseph M.\ Renes}
+\title{Solutions to Baez and Muniain's \\\emph{Gauge Fields, Knots and Gravity}}
+\begin{document}
+\renewcommand{\abstractname}{\vspace{-\baselineskip}}
+
+
+\hypersetup{pageanchor=true}
+
+\maketitle
+
+\begin{abstract}
+Here are my solutions to some of the problems in \emph{Gauge Fields, Knots and Gravity}. 
+At some point I also wrote up a few notes on the Lie derivative in the style of the book.\\
+
+version 1.0 --- Importing original writeup of solutions and Lie derivative.
+\end{abstract}
+
+\pdfbookmark[1]{\contentsname}{Contents}
+\tableofcontents
+
+
+
+\newpage
+
+\section{Part I}
+\input{src/I1}
+
+\input{src/I2}
+
+\input{src/I3}
+
+\input{src/I4}
+
+\input{src/I5}
+
+\input{src/I6}
+
+
+\section{Part II}
+\setcounter{dummy}{1}
+\setcounter{p}{0}
+
+\input{src/II1}
+
+\setcounter{p}{54}
+
+\input{src/II2}
+
+\input{src/II3}
+
+%\section{The Lie derivative}
+
+%\pdfbookmark[1]{The Lie derivative}{lie}
+\includepdf[pages=-,addtotoc={1,section,1,The Lie derivative,lie}
+]{src/lie.pdf}
+
+\includepdf[pages=-]{src/expmap.pdf}
+
+
+
+
+
+\end{document}

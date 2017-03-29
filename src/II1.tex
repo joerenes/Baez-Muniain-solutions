@@ -1,0 +1,137 @@
+%!TEX root = ../gfkg.tex
+\subsection{Chapter 1}
+
+\begin{p}%1
+\end{p}
+
+\begin{p}%2
+\end{p}
+
+\begin{p}%3
+\end{p}
+
+\begin{p}%4
+\end{p}
+
+
+\begin{p}%{5}
+{Given a Lie group $G$, define its identity component $G_0$ to be the connected component 
+containing the identity element. Show that the identity component of any Lie group is a subgroup, and a Lie
+group in its own right.}
+\end{p}
+{Suppose we have a path from the identity to $g\in G_0$. Now map this 
+path to a new path by multiplying each element by $h\in G_0$. This path starts at $h$ and since the mapping is continuous, must remain in $G_0$. (Otherwise, smoothly mapping the group manifold to $\R^n$ would show a 
+discontinuity at some point.) Thus $hg\in G_0$ for all $h,g\in G_0$.
+
+There's a certain tension between having a smooth manifold with disconnected pieces --- given a map from the 
+the manifold to itself, one must take care that it does not have a discontinuous action, mapping some points in one component to another component. When this map is an element of the group, this requirement makes
+$G_0$ into a subgroup.}
+
+
+\begin{p}%{6}
+{Show that every element of O(3) is either a rotation about some axis or a rotation about some axis followed by a reflection through some plane. Show that the former class of elements are all in the identity component of O(3), while the latter are not. Conlude that the identity component of O(3) is SO(3).}
+\end{p}
+{Rotations preserve the inner product between vectors, so with any rotation $R$ we can transform the standard orthonormal basis $\{e_1,e_2,e_3\}$ to another. But $Re_1$ is just the first column of $R$, so this fact means that $R^T R=\mathbbm{1}$. Conversely, the condition $Q^TQ=\mathbbm{1}$ means that $Q$ can be thought of as a set of orthonormal basis elements, and the action of $Q$ on the standard basis will produce this new basis. 
+This new basis need not be a rotated version of the standard basis, however, as it could also involve reflections. This corresponds to a negative determinant as the orientation of the standard basis is not preserved. 
+Aany such $Q$ can be decomposed into $Q=PR$ by using a reflection operator. Let $P'$ be the reflection through
+the plane defined by the first two standard basis vectors, i.e.~the one flipping the third standard basis vector. Clearly $QP'=R$ for some rotation $R$, since it now has a unit determinant. Then write $QP'=QP'Q^TQ=PQ$,
+defining $P=QP'Q^T$, which is symmetric: $P^T=QP'^TQ^T=QP'Q^T=P$. Thus $Q=PR$ for some rotation $R$ and reflection $P$. All rotations are connected to the identity, since we can imagine continuously varying the rotation amount. Thus the identity-connected component is SO(3). The reflections could not be the SO(3) since
+they do not form a subgroup; the product of two reflections is a rotation.}
+
+\begin{p}%7
+\end{p}
+
+\begin{p}%{8}
+{Show that if $\rho:G\rightarrow H$ is a homomorphism of groups, then $\rho(1)=1$ and $\rho(g^{-1})=\rho(g)^{-1}$.}
+\end{p}
+{First, the identity and inverses in a group are unique. Suppose there were
+two identity elements, $e$ and $1$. Then $ge=eg=g=g1=1g$ for all $g$ and in particular $e=e1=1$, using the
+identity properties of first $1$ and then $e$. The uniqueness of the identity implies the uniqueness of inverses,
+for suppose $g$ had two inverses, $h$ and $k$. Then $gh=gk=hg=hk=1$ and thus $hgh=h=hgk=k$.
+Now if $\rho$ is to be a homomorphism, then $\rho(g)=\rho(g1)=\rho(g)\rho(1)$ for all $g$, whence $\rho(1)$ is
+the identity. Similarly, $\rho(1)=\rho(gg^{-1})=\rho(g)\rho(g^{-1})$ for all $g$. So $\rho(g^{-1})$ must be 
+the inverse of $\rho(g)$, i.e.~$\rho(g)^{-1}$.}
+
+\begin{p}%{9}
+{A $1\times 1$ matrix is just a number, so show that U(1)$=\{e^{i\theta}:\theta\in\R\}$. In physics, an element of U(1) is a called a phase. Show that U(1) is isomorphic to SO(2), with an isomorphism being given by 
+\[\rho(e^{i\theta})=\left(\begin{array}{cc}\cos\theta & \sin\theta\\-\sin\theta & \cos\theta\end{array}\right).\]}
+\end{p}
+{First we check if the map is a homomorphism, and then if it is bijective. For the homomorphism we need
+to show that $\rho(e^{i\theta})\rho(e^{i\phi})=\rho(e^{i(\theta+\phi)})$, which follows since
+\[\left(\begin{array}{cc}\cos\theta & \sin\theta\\-\sin\theta & \cos\theta\end{array}\right)\left(\begin{array}{cc}\cos\phi & \sin\phi\\-\sin\phi & \cos\phi\end{array}\right)=\left(\begin{array}{cc}\cos(\theta+\phi) & \sin(\theta+\phi)\\-\sin(\theta+\phi) & \cos(\theta+\phi)\end{array}\right).\]
+The map is onto, since every element in SO(2) is of the given form, for some $\theta$. It is one-to-one since
+unless $\theta=\phi$, $\rho(e^{i\theta})\neq \rho(e^{i\phi})$.}
+
+\begin{p}%10
+\end{p}
+
+\begin{p}%11
+\end{p}
+
+\begin{p}%{12}
+{Show that for any bilinear function $f:V\times V'\rightarrow W$ from vector spaces $V$ and $V'$ to $W$ there exists a unique linear function $F:V\otimes V'\rightarrow W$ such that $f(v,v')=F(v\otimes v')$.}
+\end{p}
+{
+Here we're not trying to prove abstractly that the tensor product has this property; this property is the definition
+of tensor product. We want to show this property holds for the tensor product given. For the function $f$ to be
+bilinear, it must obey $f(v,v')=f(v^ie_i,v'^j e'_j)=v^iv'^jf(e_i,e'_j)$. But $v\otimes v'=v^iv'^je_i\otimes e'_j$, so we can just define $F$ by the action on the basis: $F(e_i\otimes e'_j)=f(e_i,e'_j)$. This set is a linearly independent basis, since the parts are linearly independent, and so the function defined this way is unique.} 
+
+\begin{p}%13
+\end{p}
+
+\begin{p}%14
+\end{p}
+
+\begin{p}%15
+\end{p}
+
+\begin{p}%16
+\end{p}
+
+\begin{p}%17
+\end{p}
+
+\begin{p}%{18}
+{Show that any $2\times 2$ matrix may be uniquely expressed as a linear combination of Pauli matrixes $\sigma_0,\dots,\sigma_3$ with complex coefficients, and that the matrix is hermitian iff these coefficients are real. Show tha tthe matrix is traceless iff the coefficient of $\sigma_0$ vanishes.}
+\end{p}
+{A general
+$2\times 2$ matrix $A$ has components $a_{jk}$, i.e.~in the ``standard basis'' of matrices. By direct calculation we can also represent $A$ as $\sum_{k}c_k\sigma_k$ for $2c_0=a_{00}+a_{11}$, $2c_3=a_{00}-a_{11}$, $2c_1=a_{01}+a_{10}$, and $2c_2=i(a_{01}-a_{10})$. Hermiticity requires
+that the $c_j$ are real, since the $\sigma_j$ are, which can also be seen from direct calculation. $c_0$ is half the
+trace, so the matrix is traceless exactly when $c_0=0$.}
+
+\begin{p}%19
+\end{p}
+
+\begin{p}%{20}
+{Show that the determinant of the $2\times 2$ matrix $a+bI+cJ+dK$ is $a^2+b^2+c^2+d^2$. Show that if $a,b,c,d$ are real and $a^2+b^2+c^2+d^2=1$, this matrix is unitary. Conclude that SU(2) is the unit sphere in $\mathbb{H}$.}
+\end{p}
+{In the usual representation the matrix is just $\left(\begin{array}{cc}a-id & -ib-c\\ -ib+c& a+id\end{array}\right)$, so the determinant follows. Direct calculation reveals $MM^\dagger=$ det$(M)\mathbbm{1}$. Regarding the matrices $I,J,K$ as the three quaternionic units, which we can do since they obey the same algebra as the matrices, we can see that any element of SU(2) can be regarded as a point
+on the quaternionic unit sphere.}
+
+\begin{p}%{21}
+{Show that the spin-0 representation of SU(2) is equivalent to the trivial representation in which every element of the group acts on $\mathbbm{C}$ as the identity.}
+\end{p}
+{To construct the representations, we 
+start from the homogeneous polynomials $f(x,y)$ on $(x,y)\in\mathbbm{C}^2$ of degree $2j$. This is a 
+vector space of dimension $2j+1$ since $x^{2j},x^{2j-1}y,\dots y^{2j}$ forms a basis. 
+Now for any $g\in$SU(2), let $U_j(g)$ be such that $(U_j(g)f)(v)=f(g^{-1}v)$ for $v\in\mathbbm{C}^2$. 
+In the case of spin-0, $f(x,y)=c$ for some constant $c$. Thus $f(g^{-1}v)=c=(U_0(g)f)(v)$ 
+and we must therefore have $U_0(g)f=f$.}
+
+\begin{p}%{22}
+{Show that the spin-1/2 represenation of SU(2) is equivalent to the fundamental representation in which every element $g\in$SU(2) acts on $\mathbbm{C}^2$ by matrix multiplication.}
+\end{p}
+{Here the 
+homogeneous polynomials are simply $f(x,y)=ax+by$, i.e.~elements of $\mathbbm{C}^2$. Then regarding
+$f$ as the column vector $\bar{f}$, $f(x,y)$ becomes the inner product $\bar{f}^T\cdot(x,y)$. 
+$f(g^{-1}v)$ is therefore $\bar{f}^T\cdot g^{-1}v=(g\bar{f})^T\cdot v$, so $U_{1/2}(g)f=gf$.}
+
+\begin{p}%{23}
+{Show that for any representation $\rho$ of a group $G$ on a vector space $V$ there is a dual or 
+contragredient representation $\rho^*$ of $G$ on $V^*$, given by 
+\[(\rho^*(g)f)(v)=f(\rho(g^{-1})v)\] for all $v\in V, f\in V^*$. 
+Show that all the representations $U_j$ of 
+SU(2) are equivalent to their duals.}
+\end{p}
+{Clearly $\rho^*(e)=1$, so we need to show that $\rho^*(gh)=\rho^*(g)\rho^*(h)$. We have $(\rho^*(gh)f)(v)=f(\rho((gh)^{-1})v)=f(\rho(h^{-1}g^{-1})v)=f(\rho(h^{-1})\rho(g^{-1})v)=(\rho^*(g)\rho^*(h)f)(v).$ }
+
