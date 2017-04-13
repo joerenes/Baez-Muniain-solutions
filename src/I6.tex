@@ -178,7 +178,7 @@ $\om,\om'$ are closed, so are $\phi^*\om$ and $\phi^*\om'$ and if $\om-\om'=d\mu
 Using the fact that the $n$-dimensional torus $T^n$ is the product of $n$ copies of $S^1$, construct $n$ closed but not exact $1$-forms $d\theta_1$, $d\theta_2$, \dots, $d\theta_n$. Hint: define maps $p_i:T^n\to S^1$ corresponding to projection down to the $i$th coordinate, where $1\leq i\leq n$, and let $d\theta_i=p_i^*d\theta$.
 \end{p}
 {Following the hint, what remains to show is that the $d\theta_1$ (for example) is a closed, non-exact 1-form on $T^n$. Recall from Exercise 80, the 1-form $d\theta$ on $S^1$ defined in cartesian coordiantes by $d\theta = \dfrac{xdy-ydx}{x^2+y^2}$. Integral over this 1-form  was shown to have different values on two different pathes on $S^1$; for a positive half circle $\gamma_0$, $\,\int_{\gamma_0}d\theta = \pi$, and for the negative half-circle, $\int_{\gamma_1}d\theta = -\pi$.
-Now, consider a path $\gamma_0^T$ on the $n-$torus $T^n$ given by travelling the path $\gamma_0$ on the first $S_1-component$ and keeping the others at zero:
+Now, consider a path $\gamma_0^T$ on the $n-$torus $T^n$ given by travelling the path $\gamma_0$ on the first $S_1$-component and keeping the others at zero:
 $$
 \gamma_0^T = \{\gamma_0, 0, ..., 0\}.
 $$
@@ -187,19 +187,76 @@ $$
 \int_{\gamma_i^T}d\theta_i = \int_{\gamma_i}d\theta, \qquad i=0,1.
 $$
 }
-This transferes the fact $d\theta$ is not exact (different integral values) to the 1-forms on the torus. 
+This transfers the fact $d\theta$ is not exact (different integral values) to the 1-forms on the torus. 
 
-\begin{p}
+\begin{p}%{104}
+	In the space $\R\times S^2$ with the metric $g = dr^2+f(r)^2(d\phi^2+sin^2\phi d\theta^2)$ (see page 144 in the book for explanation), let $E$ be the 1-form $E = e(r)dr$. \\
+Show that $dE=0$ holds no matter what the function $e(r)$ is, and show that $d\star E=0$ holds when 
+$$
+e(r) = \dfrac{q}{4\pi f(r)^2}.
+$$
 \end{p}
+First of all, we establish $dE=0$. This is true as long is $e$ is independent of $\phi$ or $\theta$: 
+$$ dE =  \partial_{\phi}e(r)d\phi+\partial_{\theta}e(r)d\theta = 0$$
+Now, to compute $\star E$, notice that the volume form $vol$ in this metric is given by 
+$$ vol = \sqrt{det(g)}dr\wedge d\phi \wedge d\theta = f^2(r)sin\phi\, dr\wedge d\phi \wedge d\theta $$
+(see p. 85 in the book). Another way to compute it is to find the normalized basis elements. For example, $g^{22} = g_{22}^{-1} = \dfrac{1}{f(r^2)}$. Then if we write $e_\phi = h\,d\phi$, with $h=h(r,\phi,\theta)$, we get 
+$$ 1 = <e_\phi,e_\phi> = \dfrac{h^2}{f^2(r)},$$
+which implies
+$$e_{\phi} = f(r)d\phi$$
+Similarly, 
+$$ e_r = dr,\quad e_\theta = f(r)sin\phi \,d\theta,$$
+and the volume element is 
+$$ vol = e_r\wedge e_\phi \wedge e_\theta,$$ 
+which amounts to the expression above.\\
+Now, denote $\star dr = u\,d\phi\wedge d\theta$. By definition of the Hodge star,
+\begin{eqnarray}
+\begin{aligned}
+dr \wedge \star dr & =<dr ,dr >vol\\	
+u\, dr\wedge d\phi\wedge d\theta &= 1\cdot f^2(r)sin\phi\, dr\wedge d\phi \wedge d\theta\\
+u &= f^2(r)sin\phi.
+\end{aligned}
+\end{eqnarray}
+Thus 
+$$\star E = \dfrac{q}{4\pi f^2(r)}\,f^2(r)sin\phi\,d\phi\wedge d\theta = \dfrac{q\sin\phi}{4\pi}\,d\phi\wedge d\theta,
+$$ and
+\begin{eqnarray}
+\begin{aligned}
+d\star E &= \partial_r\left( \dfrac{q\sin\phi}{2\pi}\right) dr \wedge d\phi\wedge d\theta = 0.
+\end{aligned}
+\end{eqnarray}
+Q.E.D.
 
 
-\begin{p}
+
+\begin{p}%{105}
+	Find a function $\phi$ with $E=-d\phi$
 \end{p}
+\begin{eqnarray}
+\begin{aligned}
+-d\phi &= \partial_r\phi\,dr+ \partial_\phi\phi\,d\phi+\partial_\theta\phi\,d\theta= \dfrac{q}{4\pi f^2(r)} dr,\\
+\partial_r\phi &= -\dfrac{q}{4\pi f^2(r)}.
+\end{aligned}
+\end{eqnarray}
+So, set $ \phi(r) = \dfrac{q}{4\pi f(r)}$ to satisfy this expression.
 
 
-\begin{p}
+\begin{p}%{106}
+	
+	Let $S^2$ denote any of the 2-spheres of the form $\{r\}\times S^2\subset \R\times S^2$, equipped with the volume form $vol = r^2 sin\phi\, d\phi\wedge d\theta$ on $S^2$. Show that
+	$$
+	\int_{S^2}\star E =q
+	$$
 \end{p}
-
+In exercise (104) we have computed 
+$$\star E = \dfrac{q\sin\phi}{4\pi}\,d\phi\wedge d\theta.$$
+Therefore 
+\begin{eqnarray}
+\begin{aligned}
+\int_{S^2}\star E = \int_{S^2}\dfrac{q}{4\pi r^2}\,r^2 \sin\phi\,d\phi\wedge d\theta =\\
+\dfrac{q}{4\pi r^2}\int_{S^2}vol = \dfrac{q}{4\pi r^2}4\pi r^2 = q.
+\end{aligned}
+\end{eqnarray}
 
 \begin{p}
 \end{p}
