@@ -1,4 +1,4 @@
-
+	
 \subsection{Chapter 6}
 
 \begin{p}%80
@@ -177,8 +177,17 @@ $\om,\om'$ are closed, so are $\phi^*\om$ and $\phi^*\om'$ and if $\om-\om'=d\mu
 \begin{p}%{103}
 Using the fact that the $n$-dimensional torus $T^n$ is the product of $n$ copies of $S^1$, construct $n$ closed but not exact $1$-forms $d\theta_1$, $d\theta_2$, \dots, $d\theta_n$. Hint: define maps $p_i:T^n\to S^1$ corresponding to projection down to the $i$th coordinate, where $1\leq i\leq n$, and let $d\theta_i=p_i^*d\theta$.
 \end{p}
-...
-
+{Following the hint, what remains to show is that the $d\theta_1$ (for example) is a closed, non-exact 1-form on $T^n$. Recall from Exercise 80, the 1-form $d\theta$ on $S^1$ defined in cartesian coordiantes by $d\theta = \dfrac{xdy-ydx}{x^2+y^2}$. Integral over this 1-form  was shown to have different values on two different pathes on $S^1$; for a positive half circle $\gamma_0$, $\,\int_{\gamma_0}d\theta = \pi$, and for the negative half-circle, $\int_{\gamma_1}d\theta = -\pi$.
+Now, consider a path $\gamma_0^T$ on the $n-$torus $T^n$ given by travelling the path $\gamma_0$ on the first $S_1-component$ and keeping the others at zero:
+$$
+\gamma_0^T = \{\gamma_0, 0, ..., 0\}.
+$$
+From the definition of $d\theta_i=p_i^*d\theta$, $d\theta_1$ is a one-form defined on the projection of the torus on the 1-st $S^1$ component, so 
+$$ 
+\int_{\gamma_i^T}d\theta_i = \int_{\gamma_i}d\theta, \qquad i=0,1.
+$$
+}
+This transferes the fact $d\theta$ is not exact (different integral values) to the 1-forms on the torus. 
 
 \begin{p}
 \end{p}
@@ -210,5 +219,4 @@ Using the fact that the $n$-dimensional torus $T^n$ is the product of $n$ copies
 
 \begin{p}%111
 \end{p}
-
 
